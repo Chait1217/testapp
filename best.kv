@@ -1,0 +1,172 @@
+WindowManager:
+    id: management
+    MainWindow:
+        id: main
+        name: "main"
+    SecondWindow:
+        name: "second"
+        id: second
+    ThirdWindow:
+        id: third
+        name: "third"
+    FourthWindow:
+        id: fourth
+        name: "fourth"
+
+<MainWindow>:
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        font_name: "fonts/styl.otf"
+        font_size: dp(80)
+        text: "WELCOME TO AKIPING"
+        pos_hint:{"center_x":.5,"center_y": .85}
+        color: 1,0,0,1
+
+    Button:
+        text: "Play"
+        size_hint: .2, .1 #width #height
+        # x, center_x, right
+        # y, center_y, top
+        pos_hint: {"center_x":.5,"center_y": .2}
+        background_color: 1, 0, 0, 1
+        on_release:
+            app.root.current = "second"
+            root.manager.transition.direction = "left"
+
+
+
+
+<SecondWindow>:
+
+    Label:
+        font_name: "fonts/styl.otf"
+        font_size: dp(80)
+        text: "CHOOSE YOUR THEME"
+        pos_hint:{"center_x":.5,"center_y": .85}
+        color: 1,0,0,1
+
+    Button:
+        size_hint: .2, .1
+        text: "Countries"
+        pos_hint: {"center_x":.3,"center_y": .35}
+        background_color: 0,0,0,0  # the last zero is the critical one, make invisible
+        canvas.before:
+            Color:
+                rgba: (.4,.4,.4,1) if self.state=='normal' else (0,.7,.7,1)  # visual feedback of press
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [50,]
+        on_release:
+            app.root.current = "third"
+            root.manager.transition.direction = "left"
+
+    Button:
+        size_hint: .2, .1
+        text: "TOP 100 TT Players"
+        pos_hint: {"center_x":.7,"center_y": .35}
+        background_color: 0,0,0,0  # the last zero is the critical one, make invisible
+        canvas.before:
+            Color:
+                rgba: (.4,.4,.4,1) if self.state=='normal' else (0,.7,.7,1)  # visual feedback of press
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [50,]
+        on_release:
+            app.root.current = "fourth"
+            root.manager.transition.direction = "right"
+
+<ThirdWindow>:
+    GridLayout:
+        rows : 2
+        Label:
+            id: question
+            text : 'Text'
+        GridLayout:
+            cols : 3
+            Button:
+                text : 'Yes'
+                id: yes
+                on_release:
+                    #root.set_answer('yes')
+                    root.teststart('yes')
+            Button:
+                text : "Don't know"
+                id: dunno
+                on_release:
+                    #root.set_answer('dnk')
+                    root.teststart('dnk')
+            Button:
+                id: no
+                text : 'No'
+                on_release:
+                    #root.set_answer('no')
+                    root.teststart('no')
+
+<FourthWindow>:
+    GridLayout:
+        rows : 2
+        Label:
+            id: question
+            text : 'Text'
+        GridLayout:
+            cols : 3
+            Button:
+                text : 'Yes'
+                id: yes
+                on_release:
+                    #root.set_answer('yes')
+                    root.teststart1('yes')
+            Button:
+                text : "Don't know"
+                id: dunno
+                on_release:
+                    #root.set_answer('dnk')
+                    root.teststart1('dnk')
+            Button:
+                id: no
+                text : 'No'
+                on_release:
+                    #root.set_answer('no')
+                    root.teststart1('no')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
