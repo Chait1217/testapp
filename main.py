@@ -2,7 +2,24 @@ import questionslogic
 import countrieslogic
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.core.window import Window
+from kivy.utils import platform
+from kivy.uix.screenmanager import ScreenManager, Screen,FadeTransition,ShaderTransition,SlideTransition,SwapTransition,TransitionBase
+from kivy.uix.widget import Widget
+from kivymd.app import MDApp
+from kivymd.uix.label import MDLabel
+from kivy.graphics import Rectangle
+from kivymd.icon_definitions import md_icons
+from kivymd.uix.button import MDRoundFlatButton,MDRectangleFlatButton,MDRaisedButton,MDIconButton
+from kivymd.color_definitions import colors, palette, hue
+from kivymd.uix.navigationdrawer import MDNavigationDrawer
+
+
+
+
+Window.size = (350,600)
+#sm = ScreenManager()
+
 
 
 class MainWindow(Screen):
@@ -20,10 +37,12 @@ class ThirdWindow(Screen):
         self.index = 0
         self.game = None
         self.test = None
+        self.test1 = None
 
 
     def set_question(self, text):
         self.ids.question.text = text
+        self.test1 = text
 
     def on_pre_enter(self, *args):
         #self.game = questionslogic.Game()
@@ -82,14 +101,21 @@ class FourthWindow(Screen):
         else:
             self.set_answer1(answer1)
 
+class FifthWindow(Screen):
+    def set_question(self, text):
+        self.ids.question1.text = text
 
+    pass
 
 class WindowManager(ScreenManager):
     pass
 
 
-class Advanced(App):
+class Advanced(MDApp):
     def build(self):
+        self.theme_cls.primary_palette = "Orange"
+        self.theme_cls.primary_hue = "100"
+        self.theme_cls.theme_style = "Light"
         kv = Builder.load_file("best.kv")
         return kv
 
