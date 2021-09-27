@@ -23,6 +23,8 @@ def create_json_europe(filename, Questions, Countries):
            "no", "yes", "no", "no", "yes", "yes", "yes", "no", "no", "yes", "yes", "yes", "yes", "yes", "yes",
            "yes", "yes", "no", "yes", "no", "no", "no", "yes", "no", "no", "no", "no", "no", "no", "no",
            "yes", "yes", "no", "no"]
+    #sponsered butterfly,
+    #
 
     dict_json = {}
     for k in range(0, len(Countries)):
@@ -73,6 +75,8 @@ def create_json_asia(filename, Questions, Countries):
     Q_9 = ["no", "no", "no", "yes", "yes", "yes", "no", "no", "no", "no", "no", "yes", "yes", "yes", "no", "yes", "no",
            "yes", "yes", "no", "no", "yes", "no", "no", "no", "yes", "no", "no", "yes", "no", "no", "no", "no", "no",
            "no"]
+    # is he indian?
+    Q_10 = []
     dict_json = {}
     for k in range(0, len(Countries)):
         dict_question = {}
@@ -139,6 +143,9 @@ def create_json_north(filename, Questions, Countries):
 
     # known for his shots with two hands on the racket?
     Q_7 = ["yes", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", ]
+
+    #"sponsored butterfly?
+    Q_8 = ["no","yes","yes","no","yes","no","no","yes","no","yes","yes","no",]
     dict_json = {}
     for k in range(0, len(Countries)):
         dict_question = {}

@@ -74,7 +74,6 @@ class Countries:
                 main3.create_json_africa("answers.json", questions_ask, continent_countries)
                 with open("answers.json", "r", encoding='utf-8') as f:
                     self.transition1(json.loads(f.read()), continent_countries, questions_ask)
-
         if ask == "no" or ask == "dnk":
             self.indexchange += 1
             try:
