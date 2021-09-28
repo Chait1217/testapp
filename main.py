@@ -18,7 +18,6 @@ from kivymd.uix.navigationdrawer import MDNavigationDrawer
 
 
 Window.size = (350,600)
-#sm = ScreenManager()
 
 
 
@@ -39,15 +38,11 @@ class ThirdWindow(Screen):
         self.test = None
         self.test1 = None
 
-
     def set_question(self, text):
         self.ids.question.text = text
         self.test1 = text
 
     def on_pre_enter(self, *args):
-        #self.game = questionslogic.Game()
-        #self.set_question(self.game.questions1[0])
-        #self.game.get_answer_json()
         self.test = questionslogic.Before()
         self.test.bienvenu()
 
@@ -59,12 +54,20 @@ class ThirdWindow(Screen):
 
     def teststart(self,answer1):
         self.index += 1
+        print(self.index)
         if self.index < 7:
             self.answer = answer1
             print(self.answer)
             self.test.questionmanager()
         else:
             self.set_answer(answer1)
+
+
+    def reset_game(self):
+        self.indexverifier("reset")
+
+
+
 
 
 class FourthWindow(Screen):
@@ -74,15 +77,14 @@ class FourthWindow(Screen):
         self.index = 0
         self.game = None
         self.test = None
+        self.test1 = None
 
 
     def set_question1(self, text):
         self.ids.question.text = text
+        self.test1 = text
 
     def on_pre_enter(self, *args):
-        #self.game = questionslogic.Game()
-        #self.set_question(self.game.questions1[0])
-        #self.game.get_answer_json()
         self.test = countrieslogic.Countries()
         self.test.bienvenu1()
 
@@ -94,6 +96,7 @@ class FourthWindow(Screen):
 
     def teststart1(self,answer1):
         self.index += 1
+        print(self.index)
         if self.index < 7:
             self.answer = answer1
             print(self.answer)
@@ -101,17 +104,29 @@ class FourthWindow(Screen):
         else:
             self.set_answer1(answer1)
 
+
+
 class FifthWindow(Screen):
     def set_question(self, text):
         self.ids.question1.text = text
 
-    pass
 
 class WindowManager(ScreenManager):
     pass
 
 
 class Advanced(MDApp):
+
+
+    def change_screen(self):
+        sm = App.get_running_app().root
+        sm.current = "main"
+        #attribut = ThirdWindow()
+        #attribut.reset_game()
+        print("executed")
+
+
+
     def build(self):
         self.theme_cls.primary_palette = "Orange"
         self.theme_cls.primary_hue = "100"

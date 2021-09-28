@@ -4,10 +4,9 @@ import main2
 import europelogic,oceany_logic,asia_logic,africa_logic,south_america_logic,north_central_logic
 import countries_start
 from kivy.uix.screenmanager import ScreenManager, Screen
-#
+
 
 class Before:
-    #sm = App.get_running_app().root
     Contient = countries_start.countries_list()
     Continent_q = countries_start.countries_question()
     Questions_First = countries_start.start_question()
@@ -59,22 +58,22 @@ class Before:
                 self.app.root.ids.third.set_question(self.Questions_First[self.indexchange])
             except IndexError:
                 self.app.root.ids.third.set_question("Sorry,coudn't guess your country?")
-            print(self.app.root.ids.third.index)
+            #print(self.app.root.ids.third.index)
 
     def bienvenu(self):
         self.app.root.ids.third.set_question("Situated in Europe?")
 
     def transition(self, answers_recieved, continent, questions):
-        # print(answers_recieved)
         self.answers = answers_recieved
         self.continent_country = continent
         self.questions_country = questions
         self.app.root.ids.third.set_question(self.questions_country[0])
         self.app.root.ids.third.index += 10
+        print(self.app.root.ids.third.index)
         self.results = self.continent_country
 
     def get_answeer(self):
-        answers = self.answers
+        self.answers1 = self.answers
         self.Q = self.app.root.ids.third.answer
         set_answer = []
         if self.Q == 'yes' or self.Q == 'no' or self.Q == 'dnk':
@@ -82,7 +81,7 @@ class Before:
                 set_answer = self.results
             else:
                 for country in self.continent_country:
-                    if answers[country][self.questions_country[self.index]] == self.Q:
+                    if self.answers1[country][self.questions_country[self.index]] == self.Q:
                         set_answer.append(country)
             if len(self.continent_country) == 46:
                 europelogic.europe_check(self)
@@ -103,6 +102,7 @@ class Before:
     def game_manager(self):
         self.results = self.get_answeer()
         print(self.results)
+
         if len(self.results) == 1:
             self.displays = list(self.results)
             sm = App.get_running_app().root
@@ -110,7 +110,9 @@ class Before:
             self.app.root.ids.fifth.set_question(self.displays[0])
             #self.app.root.ids.third.set_question(self.displays[0])
         elif len(self.results) == 0:
-            self.app.root.ids.third.set_question("Sorry,coudn't guess your country?")
+            sm = App.get_running_app().root
+            sm.current = "fifth"
+            self.app.root.ids.fifth.set_question("Sorry,coudn't guess your country?")
         else:
             self.app.root.ids.third.set_question(self.questions_country[self.index]) #error handling
             print(self.questions_country)

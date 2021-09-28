@@ -1,6 +1,8 @@
 import json
 
-
+#service du revers?
+#service rentrant?
+#service pioche?
 def create_json_europe(filename, Questions, Countries):
     # left handed?
     Q_1 = ["no", "yes", "no", "no", "no", "no", "no", "yes", "no", "yes", "yes", "no", "no", "no", "yes", "yes",
