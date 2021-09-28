@@ -498,6 +498,7 @@ def create_json_south(filename, Questions, Countries):
 
 
 def create_json_oceany(filename, Questions, Countries):
+    """Creates a json file for the oceany contient."""
     # "pop over 1 million?" 2
     Q_2 = ["yes", "no", "no", "no", "no", "no", "yes", "no", "yes", "no", "no", "no", "no", "no"]
 
