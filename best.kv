@@ -21,21 +21,10 @@ WindowManager:
 
 
 
-
-
-
 <MainWindow>:
-
     FitImage:
         source:"Images/background_image.jpg"
 
-    #BoxLayout:
-        #orientation: 'vertical'
-        #MDToolbar:
-            #title: "Demo"
-            #left_action_items: [["menu", lambda x: app.navigation_draw()]]
-            #right_action_items: [["dots-vertical", lambda x: app.callback()], ["clock", lambda x: app.callback_2()]]
-            #elevation:5
 
     MDLabel:
         #font_name: "fonts/styl.otf"
@@ -43,32 +32,34 @@ WindowManager:
         font_style: "H4"
         text: "WELCOME TO AKIPING"
         halign: "center"
+        text_size: 0.5,0.8
         pos_hint:{"center_x":.5,"center_y": .8}
         color: 1,0.87,0.69,1   #1,0.87,0.69,1
-
-    MDLabel:
-        text: "Choose between two themes:"
-        halign: "center"
-        pos_hint:{"center_x":.5,"center_y": .60}
-        color: 1,0,0,1
-        font_style: "H6"
-
-    MDLabel:
-        text: "Countries or Top 100 table tennis players."
-        halign: "center"
-        pos_hint:{"center_x":.5,"center_y": .52}
-        color: 1,0,0,1
-        font_style: "H6"
-
-
     MDFillRoundFlatButton:
         text: "I will read your mind."
         size_hint: .5, .1 #width #height
-        pos_hint: {"center_x":.5,"center_y":.2}
+        pos_hint: {"center_x":.5,"center_y":0.2}
         md_bg_color: [1,0.87,0.69,1]
         on_release:
             app.root.current = "second"
             root.manager.transition.direction = "left"
+
+    #MDLabel:
+        #text: "Choose between two themes:"
+        #halign: "center"
+        #pos_hint:{"center_x":.5,"center_y": .60}
+        #color: 1,0,0,1
+        #font_style: "H6"
+
+    #MDLabel:
+        #text: "Countries or Top 100 table tennis players."
+        #halign: "center"
+        #pos_hint:{"center_x":.5,"center_y": .52}
+        #color: 1,0,0,1
+        #font_style: "H6"
+
+
+
 
 
 <SecondWindow>:
@@ -103,6 +94,11 @@ WindowManager:
 <ThirdWindow>:
 
     BoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            md_bg_color: [0.98,0.98,0.98,1]
+            right_action_items: [["home",lambda x:app.change_screen()]]
+
         GridLayout:
             rows: 2
             MDLabel:
@@ -141,6 +137,11 @@ WindowManager:
 
 <FourthWindow>:
     BoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            md_bg_color: [0.98,0.98,0.98,1]
+            right_action_items: [["home",lambda x:app.change_screen()]]
+
         GridLayout:
             rows: 2
             MDLabel:
@@ -197,8 +198,43 @@ WindowManager:
             app.root.current = "second"
             root.manager.transition.direction = "right"
 
-    MDIconButton:
-            icon: "account-arrow-right"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
