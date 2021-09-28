@@ -4,7 +4,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.utils import platform
-from kivy.uix.screenmanager import ScreenManager, Screen,FadeTransition,ShaderTransition,SlideTransition,SwapTransition,TransitionBase
+from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.widget import Widget
 from kivymd.app import MDApp
 from kivymd.uix.label import MDLabel
