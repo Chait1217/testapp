@@ -34,7 +34,8 @@ WindowManager:
         halign: "center"
         text_size: 0.5,0.8
         pos_hint:{"center_x":.5,"center_y": .8}
-        color: 1,0.87,0.69,1   #1,0.87,0.69,1
+        color: 1,0.87,0.69,1
+
     MDFillRoundFlatButton:
         text: "I will read your mind."
         size_hint: .5, .1 #width #height
@@ -97,7 +98,7 @@ WindowManager:
         orientation: 'vertical'
         MDToolbar:
             md_bg_color: [0.98,0.98,0.98,1]
-            right_action_items: [["home",lambda x:app.change_screen()]]
+            right_action_items: [["home",lambda x:app.call_change_screen()]]
 
         GridLayout:
             rows: 2
@@ -140,7 +141,7 @@ WindowManager:
         orientation: 'vertical'
         MDToolbar:
             md_bg_color: [0.98,0.98,0.98,1]
-            right_action_items: [["home",lambda x:app.change_screen()]]
+            right_action_items: [["home",lambda x:app.call_change_screen1()]]
 
         GridLayout:
             rows: 2
@@ -158,7 +159,7 @@ WindowManager:
                     id: yes
                     on_release:
                         #root.set_answer('yes')
-                        root.teststart('yes')
+                        root.teststart1('yes')
 
                 MDRaisedButton:
                     md_bg_color: [0.09,0.69,0.68,1]
@@ -167,7 +168,7 @@ WindowManager:
                     id: dunno
                     on_release:
                         #root.set_answer('dnk')
-                        root.teststart('dnk')
+                        root.teststart1('dnk')
 
                 MDRaisedButton:
                     md_bg_color: [0.09,0.69,0.68,1]
@@ -176,7 +177,7 @@ WindowManager:
                     id: no
                     on_release:
                         #root.set_answer('no')
-                        root.teststart('no')
+                        root.teststart1('no')
 
 <FifthWindow>:
     FitImage:
@@ -195,6 +196,7 @@ WindowManager:
         pos_hint: {"center_x":.5,"center_y":.2}
         md_bg_color: [0.09,0.69,0.68,1]
         on_release:
+            app.call_reset_index()
             app.root.current = "second"
             root.manager.transition.direction = "right"
 

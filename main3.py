@@ -1,17 +1,32 @@
 import json
 
-#service du revers?
-#service rentrant?
-#service pioche?
+#service du revers? #backhand serve
+#service rentrant? #forehand Reverse pendulum serve
+#service pioche? # forehand hook serve?
+#pimples
+
 def create_json_europe(filename, Questions, Countries):
+    EUROPE = ['FALCK Mattias', 'BOLL Timo', 'OVTCHAROV Dimitrij', 'PITCHFORD Liam', 'FRANZISKA Patrick',
+     'GAUZY Simon', 'GARDOS Robert', 'FREITAS Marcos', 'SAMSONOV Vladimir', 'KARLSSON Kristian',
+     'GROTH Jonathan', 'JORGIC Darko', 'PUCAR Tomislav', 'WANG Yang', 'DUDA Benedikt', 'LEBESSON Emmanuel',
+     'FILUS Ruwen', 'PERSSON Jon', 'HABESOHN Daniel', 'GACINA Andrej', 'GIONIS Panagiotis',
+     'SIRUCEK Pavel', 'QIU Dang', 'KOU Lei', 'SKACHKOV Kirill', 'APOLONIA Tiago',
+     'DRINKHALL Paul', 'KALLBERG Anton', 'IONESCU Ovidiu', 'MAJOROS Bence',
+     'ROBLES Alvaro', 'DYJAS Jakub', 'TOKIC Bojan', 'PISTEJ Lubomir', 'NUYTINCK Cedric',
+     'AKKUZU Can', 'MONTEIRO Joao', 'LIND Anders', 'BADOWSKI Marek', 'SHIBAEV Alexander',
+     'PLETEA Cristian', 'OLAH Benedek', 'FEGERL Stefan', 'WALTHER Ricardo',
+     'KOJIC Frane', 'JANCARIK Lubomir', 'GERALDO Joao', 'WALKER Samuel']
+
+
+
     # left handed?
     Q_1 = ["no", "yes", "no", "no", "no", "no", "no", "yes", "no", "yes", "yes", "no", "no", "no", "yes", "yes",
-           "no", "no", "no", "no", "no", "no", "no", "no", "no", "yes", "no", "no", "no", "no", "no", "no", "no",
+           "no", "no", "no", "no", "no", "no", "no", "no", "no", "yes", "no", "no", "no", "no", "yes", "no", "no",
            "no", "yes", "no", "yes", "yes", "no", "no", "no", "no", "no", "no", "no", "no", "yes", "no"]
     # older than 30
     Q_2 = ["no", "yes", "yes", "no", "no", "no", "yes", "yes", "yes", "no", "no", "no", "no", "no", "no", "yes", "yes",
            "yes",
-           "yes", "yes", "yes", "no", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "no", "no", "yes", "yes",
+           "yes", "yes", "yes", "no", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "yes",
            "no",
            "no", "yes", "no", "no", "yes", "no", "yes", "yes", "no", "no", "yes", "no", "no"]
 
@@ -25,8 +40,34 @@ def create_json_europe(filename, Questions, Countries):
            "no", "yes", "no", "no", "yes", "yes", "yes", "no", "no", "yes", "yes", "yes", "yes", "yes", "yes",
            "yes", "yes", "no", "yes", "no", "no", "no", "yes", "no", "no", "no", "no", "no", "no", "no",
            "yes", "yes", "no", "no"]
-    #sponsered butterfly,
-    #
+    #sponsered butterfly
+    Q_5 = ["no","yes","yes","no","yes","no","yes","yes","no","yes","yes","no","no","no","no","no",
+           "yes","no","no","yes","yes","no","yes","no","no","yes","no","yes","no","no","no","no",
+           "no","no","no","no","yes","no","no","yes","no","no","yes","yes","no","no","yes","no"]
+
+    # ever won an olympic medal in singles or in team event?
+    Q_6 = ["no", "yes", "yes", "no", "yes", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no",
+           "no", "no",
+           "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no",
+           "no",
+           "no", "no", "no", "no", "no", "no", "no", "no", "no", "no"]
+    # backhand serve
+    Q_7 = ["yes","no","yes","no","no","no","no","no","no","no","no","yes","no","yes","no","no","yes","no","no",
+           "no","no","yes","no","no","no","no","no","no","no","no","no","no","yes","yes","no","no","no","no",
+           "no","yes","no","no","no","no","yes","no","no","no",]
+    # forehand Reverse pendulum serve
+    Q_8 = ["yes","yes","no","yes","no","no","no","yes","no","no","no","no","yes","no","yes","no","no","yes","no",
+           "yes","no","yes","no","yes","yes","no","no","no","no","yes","yes","yes","no","yes","yes","no","no",
+           "no","yes","no","yes","yes","yes","no","no","no","yes","no"]
+    # forehand hook serve?
+    Q_9 = ["no","no","no","yes","no","no","no","no","no","no","no","no","no","yes","no","yes","no","no","no",
+           "no","yes","no","no","no","no","yes","no","yes","yes","no","no","no","no","no","no","no","no","no",
+           "no","no","yes","yes","no","yes","yes","no","no","no",]
+    #pimples?
+    Q_10 = ["yes","no","no","no","no","no","no","no","no","no","no","no","no","yes","no","no","yes","no","no",
+            "no","yes","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no",
+            "no","no","no","no","no","no","no","no","no",]
+
 
     dict_json = {}
     for k in range(0, len(Countries)):
@@ -77,8 +118,7 @@ def create_json_asia(filename, Questions, Countries):
     Q_9 = ["no", "no", "no", "yes", "yes", "yes", "no", "no", "no", "no", "no", "yes", "yes", "yes", "no", "yes", "no",
            "yes", "yes", "no", "no", "yes", "no", "no", "no", "yes", "no", "no", "yes", "no", "no", "no", "no", "no",
            "no"]
-    # is he indian?
-    Q_10 = []
+
     dict_json = {}
     for k in range(0, len(Countries)):
         dict_question = {}
@@ -158,3 +198,7 @@ def create_json_north(filename, Questions, Countries):
     json_file = json.dumps(dict_json, indent=4)
     with open(filename, "w", encoding='utf-8') as f:
         return f.write(json_file)
+
+
+
+

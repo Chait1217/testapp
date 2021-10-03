@@ -10,15 +10,11 @@ from kivymd.app import MDApp
 from kivymd.uix.label import MDLabel
 from kivy.graphics import Rectangle
 from kivymd.icon_definitions import md_icons
-from kivymd.uix.button import MDRoundFlatButton,MDRectangleFlatButton,MDRaisedButton,MDIconButton
+from kivymd.uix.button import MDRoundFlatButton, MDRectangleFlatButton, MDRaisedButton, MDIconButton
 from kivymd.color_definitions import colors, palette, hue
 from kivymd.uix.navigationdrawer import MDNavigationDrawer
 
-
-
-
-Window.size = (350,600)
-
+Window.size = (350, 600)
 
 
 class MainWindow(Screen):
@@ -46,14 +42,13 @@ class ThirdWindow(Screen):
         self.test = questionslogic.Before()
         self.test.bienvenu()
 
-
     def set_answer(self, answer):
         self.answer = answer
         print(self.answer)
         self.test.game_manager()
 
-    def teststart(self,answer1):
-        self.index += 1
+    def teststart(self, answer1):
+        #self.index += 1
         print(self.index)
         if self.index < 7:
             self.answer = answer1
@@ -61,11 +56,6 @@ class ThirdWindow(Screen):
             self.test.questionmanager()
         else:
             self.set_answer(answer1)
-
-
-    def reset_game(self):
-        self.indexverifier("reset")
-
 
 
 
@@ -79,7 +69,6 @@ class FourthWindow(Screen):
         self.test = None
         self.test1 = None
 
-
     def set_question1(self, text):
         self.ids.question.text = text
         self.test1 = text
@@ -88,13 +77,12 @@ class FourthWindow(Screen):
         self.test = countrieslogic.Countries()
         self.test.bienvenu1()
 
-
     def set_answer1(self, answer):
         self.answer = answer
         print(self.answer)
         self.test.game_manager1()
 
-    def teststart1(self,answer1):
+    def teststart1(self, answer1):
         self.index += 1
         print(self.index)
         if self.index < 7:
@@ -116,16 +104,31 @@ class WindowManager(ScreenManager):
 
 
 class Advanced(MDApp):
+    def call_reset_index(self):
+        a = questionslogic.Before()
+        a.reset_index()
+        print("reset done")
+    def call_change_screen(self):
+        a = questionslogic.Before()
+        a.change_screen()
 
+    def call_change_screen1(self):
+        a = questionslogic.Before()
+        a.change_screen1()
 
-    def change_screen(self):
+    def change_screen2(self):
         sm = App.get_running_app().root
         sm.current = "main"
         #attribut = ThirdWindow()
         #attribut.reset_game()
         print("executed")
 
-
+    def change_screen3(self):
+        sm = App.get_running_app().root
+        sm.current = "main"
+        #attribut = FourthWindow()
+        #attribut.reset_game()
+        print("executed2")
 
     def build(self):
         self.theme_cls.primary_palette = "Orange"
@@ -137,4 +140,3 @@ class Advanced(MDApp):
 
 if __name__ == "__main__":
     Advanced().run()
-

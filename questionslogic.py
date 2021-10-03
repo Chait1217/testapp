@@ -1,5 +1,6 @@
 import json
 from kivy.app import App
+import main
 import main2
 import europelogic,oceany_logic,asia_logic,africa_logic,south_america_logic,north_central_logic
 import countries_start
@@ -7,14 +8,14 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 
 class Before:
-    Contient = countries_start.countries_list()
-    Continent_q = countries_start.countries_question()
-    Questions_First = countries_start.start_question()
 
     def __init__(self):
+        self.Contient = countries_start.countries_list()
+        self.Continent_q = countries_start.countries_question()
+        self.Questions_First = countries_start.start_question()
         self.app = App.get_running_app()
         self.indexchange = 0
-        self.index = 0  # 1
+        self.index2 = 0  # 1
 
 
     def questionmanager(self):
@@ -54,6 +55,7 @@ class Before:
                     self.transition(json.loads(f.read()), continent_countries, questions_ask)
         if ask == "no" or ask == "dnk":
             self.indexchange += 1
+            #print(self.indexchange + 1000)
             try:
                 self.app.root.ids.third.set_question(self.Questions_First[self.indexchange])
             except IndexError:
@@ -71,6 +73,9 @@ class Before:
         self.app.root.ids.third.index += 10
         print(self.app.root.ids.third.index)
         self.results = self.continent_country
+        #print(self.answers)
+        #print(self.questions_country)
+
 
     def get_answeer(self):
         self.answers1 = self.answers
@@ -81,7 +86,7 @@ class Before:
                 set_answer = self.results
             else:
                 for country in self.continent_country:
-                    if self.answers1[country][self.questions_country[self.index]] == self.Q:
+                    if self.answers1[country][self.questions_country[self.index2]] == self.Q:
                         set_answer.append(country)
             if len(self.continent_country) == 46:
                 europelogic.europe_check(self)
@@ -114,10 +119,30 @@ class Before:
             sm.current = "fifth"
             self.app.root.ids.fifth.set_question("Sorry,coudn't guess your country?")
         else:
-            self.app.root.ids.third.set_question(self.questions_country[self.index]) #error handling
-            print(self.questions_country)
+            try:
+                self.app.root.ids.third.set_question(self.questions_country[self.index2])
+            except IndexError:
+                sm = App.get_running_app().root
+                sm.current = "fifth"
+                self.app.root.ids.fifth.set_question("Sorry,coudn't guess your country?" + str(self.results))
+
         # self.index += 1
         # self.index1 += 1
+
+    def change_screen(self):
+        self.app.root.ids.third.index = 0
+        main.Advanced.change_screen2(self)
+
+    def change_screen1(self):
+        self.app.root.ids.fourth.index = 0
+        main.Advanced.change_screen3(self)
+
+    def reset_index(self):
+        self.app.root.ids.third.index = 0
+        self.app.root.ids.fourth.index = 0
+        print("reset done1")
+
+
 
 
 if __name__ == '__main__':

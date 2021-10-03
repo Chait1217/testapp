@@ -25,7 +25,9 @@ class Countries:
                          'ALTO Gaston']]
 
     Continent_q = [["left handed?","older than 30?","participated in rio 2016 singles or team event?",
-            "participated in tokyo 2021 singles or team event?"],["left handed?","pen holder?","older than 30 years old","participated in rio 2016 singles or team event?",
+            "participated in tokyo 2021 singles or team event?","sponsered butterfly",
+                    "ever won an olympic medal in singles or in team event?","backhand serve",
+                    "forehand Reverse pendulum serve","forehand hook serve?","pimples?"],["left handed?","pen holder?","older than 30 years old","participated in rio 2016 singles or team event?",
           "ever won an olympic medal in singles or in team event?","is he chinese?",
           "particpated in olympics 2021 tokyo singles or team event?","is he korean?",
           "sponsored butterfly?"],["older than 30 years?","participated in rio 2016 singles or team event?",
@@ -122,3 +124,4 @@ class Countries:
             self.app.root.ids.fourth.set_question1(self.questions_country[self.index])
         self.index += 1
         self.index1 += 1
+
