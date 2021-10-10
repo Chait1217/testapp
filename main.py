@@ -5,7 +5,9 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.utils import platform
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import NoTransition,CardTransition
 from kivy.uix.widget import Widget
+from kivymd.uix.screen import MDScreen
 from kivymd.app import MDApp
 from kivymd.uix.label import MDLabel
 from kivy.graphics import Rectangle
@@ -17,15 +19,15 @@ from kivymd.uix.navigationdrawer import MDNavigationDrawer
 Window.size = (350, 600)
 
 
-class MainWindow(Screen):
+class MainWindow(MDScreen):
     pass
 
 
-class SecondWindow(Screen):
+class SecondWindow(MDScreen):
     pass
 
 
-class ThirdWindow(Screen):
+class ThirdWindow(MDScreen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.answer = ''
@@ -60,7 +62,7 @@ class ThirdWindow(Screen):
 
 
 
-class FourthWindow(Screen):
+class FourthWindow(MDScreen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.answer = ''
@@ -94,16 +96,25 @@ class FourthWindow(Screen):
 
 
 
-class FifthWindow(Screen):
+class FifthWindow(MDScreen):
     def set_question(self, text):
         self.ids.question1.text = text
+
+
+class SixthWindow(MDScreen):
+    pass
+
 
 
 class WindowManager(ScreenManager):
     pass
 
 
+
 class Advanced(MDApp):
+    def change_screen6(self):
+        sm = MDApp.get_running_app().root
+        sm.current = "sixth"
     def call_reset_index(self):
         a = questionslogic.Before()
         a.reset_index()
@@ -119,15 +130,11 @@ class Advanced(MDApp):
     def change_screen2(self):
         sm = App.get_running_app().root
         sm.current = "main"
-        #attribut = ThirdWindow()
-        #attribut.reset_game()
         print("executed")
 
     def change_screen3(self):
         sm = App.get_running_app().root
         sm.current = "main"
-        #attribut = FourthWindow()
-        #attribut.reset_game()
         print("executed2")
 
     def build(self):

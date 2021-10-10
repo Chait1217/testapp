@@ -1,9 +1,6 @@
 import json
 
-#service du revers? #backhand serve
-#service rentrant? #forehand Reverse pendulum serve
-#service pioche? # forehand hook serve?
-#pimples
+
 
 def create_json_europe(filename, Questions, Countries):
     EUROPE = ['FALCK Mattias', 'BOLL Timo', 'OVTCHAROV Dimitrij', 'PITCHFORD Liam', 'FRANZISKA Patrick',
@@ -16,8 +13,6 @@ def create_json_europe(filename, Questions, Countries):
      'AKKUZU Can', 'MONTEIRO Joao', 'LIND Anders', 'BADOWSKI Marek', 'SHIBAEV Alexander',
      'PLETEA Cristian', 'OLAH Benedek', 'FEGERL Stefan', 'WALTHER Ricardo',
      'KOJIC Frane', 'JANCARIK Lubomir', 'GERALDO Joao', 'WALKER Samuel']
-
-
 
     # left handed?
     Q_1 = ["no", "yes", "no", "no", "no", "no", "no", "yes", "no", "yes", "yes", "no", "no", "no", "yes", "yes",
@@ -40,6 +35,7 @@ def create_json_europe(filename, Questions, Countries):
            "no", "yes", "no", "no", "yes", "yes", "yes", "no", "no", "yes", "yes", "yes", "yes", "yes", "yes",
            "yes", "yes", "no", "yes", "no", "no", "no", "yes", "no", "no", "no", "no", "no", "no", "no",
            "yes", "yes", "no", "no"]
+
     #sponsered butterfly
     Q_5 = ["no","yes","yes","no","yes","no","yes","yes","no","yes","yes","no","no","no","no","no",
            "yes","no","no","yes","yes","no","yes","no","no","yes","no","yes","no","no","no","no",
@@ -54,7 +50,7 @@ def create_json_europe(filename, Questions, Countries):
     # backhand serve
     Q_7 = ["yes","no","yes","no","no","no","no","no","no","no","no","yes","no","yes","no","no","yes","no","no",
            "no","no","yes","no","no","no","no","no","no","no","no","no","no","yes","yes","no","no","no","no",
-           "no","yes","no","no","no","no","yes","no","no","no",]
+           "no","yes","no","no","no","no","yes","no","no","no"]
     # forehand Reverse pendulum serve
     Q_8 = ["yes","yes","no","yes","no","no","no","yes","no","no","no","no","yes","no","yes","no","no","yes","no",
            "yes","no","yes","no","yes","yes","no","no","no","no","yes","yes","yes","no","yes","yes","no","no",
@@ -62,11 +58,11 @@ def create_json_europe(filename, Questions, Countries):
     # forehand hook serve?
     Q_9 = ["no","no","no","yes","no","no","no","no","no","no","no","no","no","yes","no","yes","no","no","no",
            "no","yes","no","no","no","no","yes","no","yes","yes","no","no","no","no","no","no","no","no","no",
-           "no","no","yes","yes","no","yes","yes","no","no","no",]
+           "no","no","yes","yes","no","yes","yes","no","no","no"]
     #pimples?
     Q_10 = ["yes","no","no","no","no","no","no","no","no","no","no","no","no","yes","no","no","yes","no","no",
             "no","yes","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no",
-            "no","no","no","no","no","no","no","no","no",]
+            "no","no","no","no","no","no","no","no","no"]
 
 
     dict_json = {}
@@ -82,6 +78,17 @@ def create_json_europe(filename, Questions, Countries):
 
 
 def create_json_asia(filename, Questions, Countries):
+    # service du revers? #backhand serve
+    # service rentrant? #forehand Reverse pendulum serve
+    # service pioche? # forehand hook serve?
+    # pimples
+    ASIA = ['FAN Zhendong', 'XU Xin', 'MA Long', 'LIN Gaoyuan', 'HARIMOTO Tomokazu', 'LIN Yun-Ju',
+     'LIANG Jingkun', 'JANG Woojin', 'JEOUNG Youngsik', 'WANG Chuqin', 'NIWA Koki', 'MIZUTANI Jun',
+     'WONG Chun Ting', 'LEE Sangsu', 'ZHAO Zihao', 'CHUANG Chih-Yuan', 'ACHANTA Sharath Kamal',
+     'UDA Yukiya', 'GNANASEKARAN Sathiyan', 'AN Jaehyun', 'JIN Takuya', 'GERASSIMENKO Kirill', 'MORIZONO Masataka',
+     'YOSHIMURA Kazuhiro', 'OIKAWA Mizuki',
+     'YOSHIMURA Maharu', 'CHEN Chien-An', 'LIM Jonghoon', 'ALAMIYAN Noshad', 'DESAI Harmeet', 'CHO Seungmin',
+     'LAM Siu Hang', 'HIRANO Yuki', 'ANTHONY Amalraj', 'XU Chenhao']
     # left handed
     Q_1 = ["no", "yes", "no", "yes", "no", "yes", "no", "no", "no", "yes", "yes", "no", "no", "no", "no", "no", "no",
            "yes", "no", "no", "no", "no", "yes", "no", "no", "no", "yes", "yes", "yes", "no", "yes", "no", "no", "no",
