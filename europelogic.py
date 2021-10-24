@@ -524,6 +524,10 @@ def europe_check(self):
                 self.questions_country.remove("Is the population of your country over 10 million?")
             except ValueError:
                 pass
+            try:
+                self.questions_country.remove("Is Dutch an official language in your country?")
+            except ValueError:
+                pass
 
     if self.app.root.ids.third.test1 == "Is the population of your country over 5 million?":
         if self.Q == 'yes' or self.Q == "dnk":

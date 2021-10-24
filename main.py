@@ -1,33 +1,32 @@
-import questionslogic
-import countrieslogic
+import countries
+import players
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.utils import platform
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.screenmanager import NoTransition,CardTransition
 from kivy.uix.widget import Widget
 from kivymd.uix.screen import MDScreen
 from kivymd.app import MDApp
 from kivymd.uix.label import MDLabel
 from kivy.graphics import Rectangle
 from kivymd.icon_definitions import md_icons
-from kivymd.uix.button import MDRoundFlatButton, MDRectangleFlatButton, MDRaisedButton, MDIconButton
+from kivymd.uix.button import MDRoundFlatButton, MDRaisedButton, MDIconButton
 from kivymd.color_definitions import colors, palette, hue
 from kivymd.uix.navigationdrawer import MDNavigationDrawer
 
 Window.size = (350, 600)
 
 
-class MainWindow(MDScreen):
+class MainWindow(Screen):
     pass
 
 
-class SecondWindow(MDScreen):
+class SecondWindow(Screen):
     pass
 
 
-class ThirdWindow(MDScreen):
+class ThirdWindow(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.answer = ''
@@ -41,7 +40,7 @@ class ThirdWindow(MDScreen):
         self.test1 = text
 
     def on_pre_enter(self, *args):
-        self.test = questionslogic.Before()
+        self.test = countries.Countries()
         self.test.bienvenu()
 
     def set_answer(self, answer):
@@ -50,7 +49,6 @@ class ThirdWindow(MDScreen):
         self.test.game_manager()
 
     def teststart(self, answer1):
-        #self.index += 1
         print(self.index)
         if self.index < 7:
             self.answer = answer1
@@ -60,13 +58,12 @@ class ThirdWindow(MDScreen):
             self.set_answer(answer1)
 
 
+class FourthWindow(Screen):
 
-
-class FourthWindow(MDScreen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.answer = ''
-        self.index = 0
+        self.index = 1001
         self.game = None
         self.test = None
         self.test1 = None
@@ -76,7 +73,7 @@ class FourthWindow(MDScreen):
         self.test1 = text
 
     def on_pre_enter(self, *args):
-        self.test = countrieslogic.Countries()
+        self.test = players.Players()
         self.test.bienvenu1()
 
     def set_answer1(self, answer):
@@ -85,9 +82,12 @@ class FourthWindow(MDScreen):
         self.test.game_manager1()
 
     def teststart1(self, answer1):
-        self.index += 1
         print(self.index)
-        if self.index < 7:
+        if self.index == 1001:
+            self.answer = answer1
+            self.test.male_or_female()
+            print("step")
+        elif self.index < 7:
             self.answer = answer1
             print(self.answer)
             self.test.questionmanager1()
@@ -95,36 +95,35 @@ class FourthWindow(MDScreen):
             self.set_answer1(answer1)
 
 
-
-class FifthWindow(MDScreen):
+class FifthWindow(Screen):
     def set_question(self, text):
         self.ids.question1.text = text
 
 
-class SixthWindow(MDScreen):
+class SixthWindow(Screen):
     pass
-
 
 
 class WindowManager(ScreenManager):
     pass
 
 
-
 class Advanced(MDApp):
     def change_screen6(self):
         sm = MDApp.get_running_app().root
         sm.current = "sixth"
+
     def call_reset_index(self):
-        a = questionslogic.Before()
+        a = countries.Countries()
         a.reset_index()
         print("reset done")
+
     def call_change_screen(self):
-        a = questionslogic.Before()
+        a = countries.Countries()
         a.change_screen()
 
     def call_change_screen1(self):
-        a = questionslogic.Before()
+        a = countries.Countries()
         a.change_screen1()
 
     def change_screen2(self):

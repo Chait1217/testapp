@@ -9,14 +9,14 @@ def start_question():
 def countries_question():
     countries_questions = [
         ["Is the population of your country over 30 million?", "Is the population of your country over 10 million?",
-         "Is the population of your country over 5 million?","Is Dutch an official language in your country?",
+         "Is the population of your country over 5 million?", "Is Dutch an official language in your country?",
          "Is English an official language in your country?",
          "Is Italian an official language in your country?", "Is French an official language in your country?",
-         "Is German an official language in your country?","Is your country part of the European Union?",
+         "Is German an official language in your country?", "Is your country part of the European Union?",
          "Is Euro the official currency of your country?",
          "Is your country situated in the Nordic region?", "Does your country touches The Mediterranean Sea?",
-         "Was your country part of Yougoslavia?","Does the flag of your country has 3 or more colors?",
-         "Does the flag of your country has blue cross?","Does the flag of your country has a cross?",
+         "Was your country part of Yougoslavia?", "Does the flag of your country has 3 or more colors?",
+         "Does the flag of your country has blue cross?", "Does the flag of your country has a cross?",
          "Does the flag of your country contains red?"],
         ["Is the population of your country over 100 million?", "Is the population of your country over 30 million?",
          "Is the population of your country over 10 million?", "Is the population of your country over 5 million?",
@@ -38,7 +38,7 @@ def countries_question():
          "Is French an official language in your country?", "Is English an official language in your country?",
          "Is Arabic an official language in your country?",
          "Is Portuguese an official language in your country?",
-         "Is your country an island?","Is Islam the most practiced religion in your religion?",
+         "Is your country an island?", "Is Islam the most practiced religion in your religion?",
          "Is Christianity the most practiced religion in your country?",
          "Does your country touches the Atlantic Ocean?(including The Mediterranean Sea)",
          "Does your country touches the Indian Ocean?(including The Red Sea and The Arabian Sea)",
@@ -57,16 +57,16 @@ def countries_question():
          "Is there a circled object or a sun on the flag of your country?"],
         ["Is the population of your country over 30 million?", "Is the population of your country over 10 million?",
          "Is the population of your country over 5 million?", "Is Spanish an official language in your country?",
-         "Is English an official language in your country?","Does your country touches the Atlantic Ocean?",
+         "Is English an official language in your country?", "Does your country touches the Atlantic Ocean?",
          "Does your country touches the Pacific Ocean?",
          "Does the flag of your country contains red?", "Does the flag of your country contains blue?",
          "Does the flag of your country contains yellow?",
-         "Does the flag of your country contains green?","Does the flag of your country contains black?",
+         "Does the flag of your country contains green?", "Does the flag of your country contains black?",
          "Is there a star on the flag of your country?"],
         ["Is the population of your country over 10 million?", "Is the population of your country over 1 million?",
          "Does the flag of your country contains green?",
          "Does the flag of your country contains blue?", "Does the flag of your country contains red?",
-         "Does the flag of your country contains yellow?","Is there a star on the flag of your country?",]]
+         "Does the flag of your country contains yellow?", "Is there a star on the flag of your country?"]]
     return countries_questions
 
 
