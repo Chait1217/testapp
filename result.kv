@@ -1,0 +1,22 @@
+<ResultScreen>:
+    FitImage:
+        source:"Images/whitewall.jpg"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: "Result"
+            right_action_items: [["home",lambda x:app.change_screen_and_call_reset_function("main")]]
+        RelativeLayout:
+            MDLabel:
+                id: answer
+                text: 'Text'
+                halign:"center"
+                pos_hint:{"center_x":.5,"center_y": .8}
+                font_style: "H5"
+            MDFillRoundFlatButton:
+                text: "Play Again"
+                size_hint: .5, .1
+                pos_hint: {"center_x":.5,"center_y":.3}
+                md_bg_color: [0.09,0.69,0.68,1]
+                on_release:
+                    app.change_screen_and_call_reset_function("second")

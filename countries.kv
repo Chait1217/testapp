@@ -1,0 +1,40 @@
+<CountriesScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title: "Countries"
+            #md_bg_color: [0.98,0.98,0.98,1]
+            right_action_items: [["home",lambda x:app.change_screen_and_call_reset_function("main")]]
+
+        GridLayout:
+            rows: 2
+            MDLabel:
+                id: question
+                text: 'Text'
+                halign:"center"
+
+            GridLayout:
+                rows: 3
+                MDRaisedButton:
+                    md_bg_color: [0.09,0.69,0.68,1]
+                    size_hint:0.5,0.2
+                    text : 'Yes'
+                    id: yes
+                    on_release:
+                        root.logic('yes')
+
+                MDRaisedButton:
+                    md_bg_color: [0.09,0.69,0.68,1]
+                    size_hint:0.5,0.2
+                    text : "Don't know"
+                    id: dunno
+                    on_release:
+                        root.logic('dnk')
+
+                MDRaisedButton:
+                    md_bg_color: [0.09,0.69,0.68,1]
+                    size_hint:0.5,0.2
+                    text : 'no'
+                    id: no
+                    on_release:
+                        root.logic('no')

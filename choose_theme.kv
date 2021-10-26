@@ -1,0 +1,29 @@
+<ThemeScreen>:
+    FitImage:
+        source:"Images/tabletennis.jpg"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: "Themes"
+            right_action_items: [["home",lambda x:app.change_screen_and_call_reset_function("main")]]
+        RelativeLayout:
+            MDLabel:
+                font_style: "H5"
+                halign:"center"
+                text: "CHOOSE YOUR THEME"
+                pos_hint:{"center_x":.5,"center_y": .8}
+                color: 1,0.87,0.69,1
+            MDFillRoundFlatButton:
+                size_hint: .4, .1
+                text: "Countries"
+                pos_hint: {"center_x":.25,"center_y": .4}
+                on_release:
+                    app.root.current = "third"
+                    root.manager.transition.direction = "left"
+            MDFillRoundFlatButton:
+                size_hint: .4, .1
+                text: "Top 100 TT Players"
+                pos_hint: {"center_x":.75,"center_y": .4}
+                on_release:
+                    app.root.current = "fourth"
+                    root.manager.transition.direction = "left"
