@@ -1,25 +1,63 @@
-import json
+"""
+Countries Theme.
+
+Contains all the code to play the game.
+"""
+
+
 from kivy.app import App
-import main
-import json_countries
-import europelogic, oceany_logic, asia_logic, africa_logic, south_america_logic, north_central_logic
+
+import json
+import africa_logic
+import asia_logic
 import countries_start
+import europe_logic
+import json_countries
+import north_central_logic
+import oceania_logic
+import south_america_logic
 
 
 class Countries:
+    """
+    Handles the Countries theme main logic and the results.
 
+    ...
+    Attributes
+    ----------
+    continent : tuple
+        contains a list of all the countries separated by continents.
+
+    continent_q : tuple
+        contains a list of all the questions for every continents.
+
+    questions_first : tuple
+        contains a list of all the initial questions.
+
+    app : object
+        Instance of the class Akiping.
+
+    index_question : int
+        used for changing the questions.
+    """
     def __init__(self):
-        self.Contient = countries_start.countries_list()
-        self.Continent_q = countries_start.countries_question()
-        self.Questions_First = countries_start.start_question()
+        self.continent = countries_start.countries_list()
+        self.continent_q = countries_start.countries_question()
+        self.questions_first = countries_start.start_question()
         self.app = App.get_running_app()
         self.index_question = 0
 
-    def questionmanager(self):
-        ask = self.app.root.ids.third.answer
-        if ask == "yes":
-            continent_countries = self.Contient[self.index_question]
-            questions_ask = self.Continent_q[self.index_question]
+    def question_manager(self):
+        """
+        Checks in which continent is the user's country and creates the
+        json file on the fly, which contains all the attributes of the countries.
+
+        Then transfers the information to the transition function.
+        """
+        user_answer = self.app.root.ids.third.answer
+        if user_answer == "yes":
+            continent_countries = self.continent[self.index_question]
+            questions_ask = self.continent_q[self.index_question]
             if self.index_question == 5:
                 self.results = continent_countries
                 json_countries.create_json_oceany("answers.json", questions_ask, continent_countries)
@@ -50,20 +88,34 @@ class Countries:
                 json_countries.create_json_africa("answers.json", questions_ask, continent_countries)
                 with open("answers.json", "r", encoding='utf-8') as f:
                     self.transition(json.loads(f.read()), continent_countries, questions_ask)
-        if ask == "no" or ask == "dnk":
+        if user_answer == "no" or user_answer == "dnk":
             self.index_question += 1
             try:
-                self.app.root.ids.third.set_question(self.Questions_First[self.index_question])
+                self.app.root.ids.third.set_question(self.questions_first[self.index_question])
             except IndexError:
                 sm = App.get_running_app().root
                 sm.current = "fifth"
-                self.app.root.ids.fifth.set_question("Sorry,couldn't guess your country.")
-            # print(self.app.root.ids.third.index)
+                self.app.root.ids.fifth.display_answer("Sorry, couldn't guess your country.")
 
-    def bienvenu(self):
+    def welcome(self):
+        """First question which is asked to the user."""
         self.app.root.ids.third.set_question("Is your country situated in Europe?")
 
     def transition(self, answers_recieved, continent, questions):
+        """
+        Receives the information of the json file, the list of questions
+        and the list of the countries.
+
+        ----------
+        answers_recieved :
+            contains the json file's information.
+
+        continent : tuple
+            contains a list of the countries.
+
+        questions : tuple
+            contains a list of the questions.
+        """
         self.answers = answers_recieved
         self.continent_country = continent
         self.questions_country = questions
@@ -71,25 +123,29 @@ class Countries:
         self.app.root.ids.third.index += 10
         print(self.app.root.ids.third.index)
         self.results = self.continent_country
-        # print(self.answers)
-        # print(self.questions_country)
 
-    def get_answeer(self):
-        self.Q = self.app.root.ids.third.answer
+    def get_answer(self):
+        """
+        Checks the answer of the user for every question with the json file
+        in order to try and guess the user's thought.
+
+        After every answer given by the user, the function responsible for the
+        logic of the specific continent gets called.
+        """
+        self.answer_user = self.app.root.ids.third.answer
         set_answer = []
-        # if self.Q == 'yes' or self.Q == 'no' or self.Q == 'dnk':
-        if self.Q == 'dnk':
+        if self.answer_user == 'dnk':
             set_answer = self.results
         else:
             for country in self.continent_country:
-                if self.answers[country][self.questions_country[0]] == self.Q:
+                if self.answers[country][self.questions_country[0]] == self.answer_user:
                     set_answer.append(country)
         if len(self.continent_country) == 46:
-            europelogic.europe_check(self)
+            europe_logic.europe_check(self)
         if len(self.continent_country) == 45:
             asia_logic.asia_logic(self)
         if len(self.continent_country) == 14:
-            oceany_logic.oceany_logic(self)
+            oceania_logic.oceania_logic(self)
         if len(self.continent_country) == 54:
             africa_logic.africa_logic(self)
         if len(self.continent_country) == 12:
@@ -102,26 +158,28 @@ class Countries:
         return self.results
 
     def game_manager(self):
-        self.results = self.get_answeer()
+        """Calls the get_answer function and checks the length of result.
+        If no answer is found, it moves on to the next question.
+        """
+        self.results = self.get_answer()
         print(self.results)
         if len(self.results) == 1:
-            self.displays = list(self.results)
+            guess = list(self.results)
             sm = App.get_running_app().root
             sm.current = "fifth"
-            self.app.root.ids.fifth.set_question("Your guess was: " + self.displays[0])
+            self.app.root.ids.fifth.display_answer("Your guess was: " + guess[0])
         elif len(self.results) == 0:
             sm = App.get_running_app().root
             sm.current = "fifth"
             if len(self.store_answer) < 6:
-                result_without_quotes1 = ", ".join(list(self.store_answer))
-                self.app.root.ids.fifth.set_question("Sorry, couldn't guess your country."
-                                                     " These are the possible countries: " + str(
-                    result_without_quotes1))
+                result_without_quotes = ", ".join(list(self.store_answer))
+                self.app.root.ids.fifth.display_answer("Sorry, couldn't guess your country."
+                                                       " These are the possible countries: " + str(
+                    result_without_quotes))
             else:
                 sm = App.get_running_app().root
                 sm.current = "fifth"
-                self.app.root.ids.fifth.set_question("Sorry, couldn't guess your country.")
-
+                self.app.root.ids.fifth.display_answer("Sorry, couldn't guess your country.")
         else:
             try:
                 self.app.root.ids.third.set_question(self.questions_country[0])
@@ -130,28 +188,18 @@ class Countries:
                     sm = App.get_running_app().root
                     sm.current = "fifth"
                     result_without_quotes = ", ".join(list(self.results))
-                    self.app.root.ids.fifth.set_question("Sorry, couldn't guess your country."
-                                                         " These are the possible countries: "
-                                                         + str(result_without_quotes))
+                    self.app.root.ids.fifth.display_answer("Sorry, couldn't guess your country."
+                                                           " These are the possible countries: "
+                                                           + str(result_without_quotes))
                 else:
                     sm = App.get_running_app().root
                     sm.current = "fifth"
-                    self.app.root.ids.fifth.set_question("Sorry, couldn't guess your country.")
-
-    def change_screen(self):
-        self.app.root.ids.fourth.index = 1001
-        self.app.root.ids.third.index = 0
-        main.Advanced.change_screen2(self)
-
-    def change_screen1(self):
-        self.app.root.ids.third.index = 0
-        self.app.root.ids.fourth.index = 1001
-        main.Advanced.change_screen3(self)
+                    self.app.root.ids.fifth.display_answer("Sorry, couldn't guess your country.")
 
     def reset_index(self):
+        """Resets the index variable to it's original value."""
         self.app.root.ids.third.index = 0
-        self.app.root.ids.fourth.index = 1001
-        print("reset done1")
+        print("reset countries")
 
 
 if __name__ == '__main__':

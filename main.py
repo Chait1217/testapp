@@ -1,148 +1,233 @@
-import countries
-import players
-from kivy.app import App
+"""
+Akiping.
+
+This a game where you can choose between two themes: Countries and Top 100 table tennis players.
+Think of either a country or a table tennis player and the computer will try to read your mind by asking questions.
+
+Designed by Chaitanya Vepa.
+"""
+
 from kivy.lang import Builder
+from kivy.config import Config
 from kivy.core.window import Window
 from kivy.utils import platform
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.widget import Widget
-from kivymd.uix.screen import MDScreen
+
 from kivymd.app import MDApp
 from kivymd.uix.label import MDLabel
-from kivy.graphics import Rectangle
 from kivymd.icon_definitions import md_icons
-from kivymd.uix.button import MDRoundFlatButton, MDRaisedButton, MDIconButton
+from kivymd.uix.button import MDFillRoundFlatButton, MDRaisedButton, MDIconButton
 from kivymd.color_definitions import colors, palette, hue
-from kivymd.uix.navigationdrawer import MDNavigationDrawer
+
+import countries
+import players
 
 Window.size = (350, 600)
+Config.set('kivy', 'exit_on_escape', '0')  # To avoid app shutdown by pressing 'return' on phone
 
 
-class MainWindow(Screen):
+class WelcomeScreen(Screen):
+    """Welcome page screen."""
     pass
 
 
-class SecondWindow(Screen):
+class ThemeScreen(Screen):
+    """Choose your theme screen.
+    Choose between 2 themes: Countries or Table tennis players.
+    """
     pass
 
 
-class ThirdWindow(Screen):
+class CountriesScreen(Screen):
+    """
+    Screen for Countries theme.
+
+    ...
+    Attributes
+    ----------
+    answer : str
+        answer given by the user.
+
+    index : int
+        number used to handle the logic and the questions.
+
+    game: object
+        creates an instance of the Countries class.
+
+    questions : str
+        stores the question shown to the user.
+    """
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.answer = ''
         self.index = 0
         self.game = None
-        self.test = None
-        self.test1 = None
+        self.questions = None
 
     def set_question(self, text):
+        """
+        Shows the question to the user.
+
+        ----------
+        text : str
+            The future question
+        """
         self.ids.question.text = text
-        self.test1 = text
+        self.questions = text
 
     def on_pre_enter(self, *args):
-        self.test = countries.Countries()
-        self.test.bienvenu()
+        """Is called just before the user sees the screen."""
+        self.game = countries.Countries()
+        self.game.welcome()
 
-    def set_answer(self, answer):
+    def call_manager(self, answer):
+        """Saves the answer of the user and calls the game_manager function."""
         self.answer = answer
         print(self.answer)
-        self.test.game_manager()
+        self.game.game_manager()
 
-    def teststart(self, answer1):
+    def logic(self, answer_given):
+        """
+        Calls different function depending on the current value of the index.
+
+        ----------
+        answer_given : str
+            The answer received by the user.
+        """
         print(self.index)
         if self.index < 7:
-            self.answer = answer1
+            self.answer = answer_given
             print(self.answer)
-            self.test.questionmanager()
+            self.game.question_manager()
         else:
-            self.set_answer(answer1)
+            self.call_manager(answer_given)
 
 
-class FourthWindow(Screen):
+class TTPlayersScreen(Screen):
+    """
+    Screen for Table Tennis theme.
 
+    ...
+    Attributes
+    ----------
+    answer : str
+        answer given by the user.
+
+    index : int
+        number used to handle the logic and the questions.
+
+    game: object
+        creates an instance of the Players class.
+
+    questions : str
+        stores the question shown to the user.
+    """
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.answer = ''
         self.index = 1001
         self.game = None
-        self.test = None
-        self.test1 = None
+        self.questions = None
 
-    def set_question1(self, text):
+    def set_question(self, text):
+        """
+        Shows the question to the user.
+
+        ----------
+        text : str
+            The future question
+        """
         self.ids.question.text = text
-        self.test1 = text
+        self.questions = text
 
     def on_pre_enter(self, *args):
-        self.test = players.Players()
-        self.test.bienvenu1()
+        """Is called just before the user sees the screen."""
+        self.game = players.Players()
+        self.game.welcome()
 
-    def set_answer1(self, answer):
+    def call_manager(self, answer):
+        """Saves the answer of the user and calls the game_manager function."""
         self.answer = answer
         print(self.answer)
-        self.test.game_manager1()
+        self.game.game_manager()
 
-    def teststart1(self, answer1):
+    def logic(self, answer_given):
+        """
+        Calls different functions depending on the current value of the index.
+
+        ----------
+        answer_given :
+            The answer given by the user.
+        """
         print(self.index)
         if self.index == 1001:
-            self.answer = answer1
-            self.test.male_or_female()
+            self.answer = answer_given
+            self.game.male_or_female()
             print("step")
         elif self.index < 7:
-            self.answer = answer1
+            self.answer = answer_given
             print(self.answer)
-            self.test.questionmanager1()
+            self.game.question_manager()
         else:
-            self.set_answer1(answer1)
+            self.call_manager(answer_given)
 
 
-class FifthWindow(Screen):
-    def set_question(self, text):
-        self.ids.question1.text = text
+class ResultScreen(Screen):
+    """Result Screen."""
+    def display_answer(self, text):
+        """Stores the final result."""
+        self.ids.answer.text = text
 
 
-class SixthWindow(Screen):
+class NavDrawer(Screen):
+    """Navigation drawer screen."""
     pass
 
 
 class WindowManager(ScreenManager):
+    """Manages all the screens."""
     pass
 
 
-class Advanced(MDApp):
-    def change_screen6(self):
+class AkipingApp(MDApp):
+    """
+    This class represents the app.
+    It is necessary in order to use the kivy/kivyMD module.
+    """
+    def reset_index(self):
+        """Resets the game index in order to play the game multiple times."""
+        object_countries = countries.Countries()
+        object_countries.reset_index()
+        object_players = players.Players()
+        object_players.reset_index()
+        print("reset fully done")
+
+    def change_screen_and_call_reset_function(self, screen_name):
+        """
+        Changes the current screen using the ScreenManager
+        Parameters and calls the reset_index function.
+
+        ----------
+        screen_name : str
+            The name of the future current screen
+        """
         sm = MDApp.get_running_app().root
-        sm.current = "sixth"
-
-    def call_reset_index(self):
-        a = countries.Countries()
-        a.reset_index()
-        print("reset done")
-
-    def call_change_screen(self):
-        a = countries.Countries()
-        a.change_screen()
-
-    def call_change_screen1(self):
-        a = countries.Countries()
-        a.change_screen1()
-
-    def change_screen2(self):
-        sm = App.get_running_app().root
-        sm.current = "main"
-        print("executed")
-
-    def change_screen3(self):
-        sm = App.get_running_app().root
-        sm.current = "main"
-        print("executed2")
+        sm.current = screen_name
+        self.reset_index()
 
     def build(self):
+        """
+        Creates the app.
+        Returns A file containing all the kv code.
+        """
         self.theme_cls.primary_palette = "Orange"
         self.theme_cls.primary_hue = "100"
         self.theme_cls.theme_style = "Light"
-        kv = Builder.load_file("best.kv")
+        kv = Builder.load_file("main.kv")
         return kv
 
 
 if __name__ == "__main__":
-    Advanced().run()
+    AkipingApp().run()
