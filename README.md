@@ -1,4 +1,4 @@
-# testapp
+# Akiping
 Guessing game, Akiping, on Kivy / KivyMD for my Travail de Maturité
 StatsPoint
 
