@@ -12,7 +12,6 @@ from kivy.config import Config
 from kivy.core.window import Window
 from kivy.utils import platform
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.widget import Widget
 
 from kivymd.app import MDApp
 from kivymd.uix.label import MDLabel
@@ -23,7 +22,11 @@ from kivymd.color_definitions import colors, palette, hue
 import countries
 import players
 
-Window.size = (350, 600)
+
+if platform == 'win':
+    Window.size = (350, 600)
+#  Simulate a phone screen
+
 Config.set('kivy', 'exit_on_escape', '0')  # To avoid app shutdown by pressing 'return' on phone
 
 
@@ -85,7 +88,6 @@ class CountriesScreen(Screen):
     def call_manager(self, answer):
         """Saves the answer of the user and calls the game_manager function."""
         self.answer = answer
-        print(self.answer)
         self.game.game_manager()
 
     def logic(self, answer_given):
@@ -96,10 +98,8 @@ class CountriesScreen(Screen):
         answer_given : str
             The answer received by the user.
         """
-        print(self.index)
         if self.index < 7:
             self.answer = answer_given
-            print(self.answer)
             self.game.question_manager()
         else:
             self.call_manager(answer_given)
@@ -150,7 +150,6 @@ class TTPlayersScreen(Screen):
     def call_manager(self, answer):
         """Saves the answer of the user and calls the game_manager function."""
         self.answer = answer
-        print(self.answer)
         self.game.game_manager()
 
     def logic(self, answer_given):
@@ -161,15 +160,11 @@ class TTPlayersScreen(Screen):
         answer_given :
             The answer given by the user.
         """
-        print(self.index)
         if self.index == 1001:
             self.answer = answer_given
             self.game.male_or_female()
-            print("step")
         elif self.index < 7:
             self.answer = answer_given
-            print(self.answer)
-            print("called question_manager")
             self.game.question_manager()
         else:
             self.call_manager(answer_given)
@@ -208,7 +203,6 @@ class AkipingApp(MDApp):
         object_countries.reset_index()
         object_players = players.Players()
         object_players.reset_index()
-        print("reset fully done")
 
     def change_screen_and_call_reset_function(self, screen_name):
         """

@@ -126,7 +126,6 @@ class Countries:
         self.questions_country = questions
         self.app.root.ids.third.set_question(self.questions_country[0])
         self.app.root.ids.third.index += 10
-        print(self.app.root.ids.third.index)
         self.results = self.continent_country
 
     def get_answer(self):
@@ -170,7 +169,6 @@ class Countries:
         If an answer is found it changes the screen to the result page.
         """
         self.results = self.get_answer()
-        print(self.results)
         if len(self.results) == 1:
             guess = list(self.results)
             sm = App.get_running_app().root
@@ -203,7 +201,6 @@ class Countries:
     def reset_index(self):
         """Resets the index variable to it's original value."""
         self.app.root.ids.third.index = 0
-        print("reset countries")
 
 
 if __name__ == '__main__':

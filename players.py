@@ -77,13 +77,11 @@ class Players:
         user_answer = self.app.root.ids.fourth.answer
         if user_answer == "yes":
             self.index_male_female = 4
-            print("executed11")
             self.app.root.ids.fourth.index = 0
             self.app.root.ids.fourth.set_question(self.initial_female_questions[0])
 
         if user_answer == "no":
             self.index_male_female = 8
-            print("executed12")
             self.app.root.ids.fourth.index = 0
             self.app.root.ids.fourth.set_question(self.initial_male_questions[0])
 
@@ -102,7 +100,6 @@ class Players:
         Then transfers the information to the transition function.
         """
         if self.index_male_female == 8:
-            print("read male")
             user_answer = self.app.root.ids.fourth.answer
             if user_answer == "yes":
                 continent_players_male = self.contient_players_male[self.index_transition]
@@ -241,7 +238,6 @@ class Players:
         If an answer is found it changes the screen to the result page.
         """
         self.results = self.get_answer()
-        print(self.results)
         if len(self.results) == 1:
             guess = list(self.results)
             sm = App.get_running_app().root
@@ -274,7 +270,6 @@ class Players:
     def reset_index(self):
         """Resets the index variable to it's original value."""
         self.app.root.ids.fourth.index = 1001
-        print("reset players index")
 
 
 if __name__ == '__main__':

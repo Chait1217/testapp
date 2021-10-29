@@ -6,7 +6,7 @@ Creates a json file with the questions and answers for every female table tennis
 import json
 
 
-def create_json_europe(filename, questions, countries):
+def create_json_europe(filename, questions, players):
     """
     Creates a json file for the female European table tennis players with all their attributes.
 
@@ -105,18 +105,18 @@ def create_json_europe(filename, questions, countries):
             "no", "yes", "no", "no", "no")
 
     dict_json = {}
-    for k in range(0, len(countries)):
+    for k in range(0, len(players)):
         dict_question = {}
         for j in range(0, len(questions)):
             dict_question[questions[j]] = locals()[f"Q_{j + 1}"][k]
-        dict_json[countries[k]] = dict_question
+        dict_json[players[k]] = dict_question
 
     json_file = json.dumps(dict_json, indent=4)
     with open(filename, "w", encoding='utf-8') as f:
         return f.write(json_file)
 
 
-def create_json_asia(filename, questions, countries):
+def create_json_asia(filename, questions, players):
     """
     Creates a json file for the female Asian table tennis players with all their attributes.
 
@@ -225,11 +225,11 @@ def create_json_asia(filename, questions, countries):
     # south korea
 
     dict_json = {}
-    for k in range(0, len(countries)):
+    for k in range(0, len(players)):
         dict_question = {}
         for j in range(0, len(questions)):
             dict_question[questions[j]] = locals()[f"Q_{j + 1}"][k]
-        dict_json[countries[k]] = dict_question
+        dict_json[players[k]] = dict_question
     json_file = json.dumps(dict_json, indent=4)
     with open(filename, "w", encoding='utf-8') as f:
         return f.write(json_file)

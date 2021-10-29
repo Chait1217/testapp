@@ -20,7 +20,7 @@ def europe_logic(self):
     Q7 = "Is German an official language in your country?"
     Q8 = "Is your country situated in the Nordic region?"
     Q9 = "Does your country touches The Mediterranean Sea?"
-    Q10 = "Was your country part of Yougoslavia?"
+    Q10 = "Was your country part of Yugoslavia?"
     Q11 = "Does the flag of your country has 3 or more colors?"
     Q12 = "Does the flag of your country has a cross?"
     Q13 = "Does the flag of your country contains red?"

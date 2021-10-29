@@ -24,10 +24,10 @@ def create_json_europe(filename, questions, countries):
     filename : .json
         name of json file created.
 
-    questions : tuple
+    questions : list
         list of all the questions for the European countries.
 
-    countries : tuple
+    countries : list
         list of all the European countries.
     """
     EUROPE = ("Albania", "Andorra", "Austria", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia",
@@ -151,10 +151,10 @@ def create_json_asia(filename, questions, countries):
     filename : .json
         name of json file created.
 
-    questions : tuple
+    questions : list
         list of all the questions for the Asian countries.
 
-    countries : tuple
+    countries : list
         list of all the Asian countries.
     """
     ASIA = ("Afghanistan", "Armenia", "Azerbaijan", "Bahrain", "Bangladesh", "Bhutan", "Brunei", "Cambodia", "China",
@@ -289,32 +289,27 @@ def create_json_africa(filename, questions, countries):
 
     Each element of the list, either 'yes' or 'no', corresponds to the answer in the order of the AFRICA tuple.
 
-    For example, in Q_1, the corresponding question is: "Is the population of your country over 100 million?".
-    The first element of the tuple, 'no', corresponds to 'Afghanistan',
-    the second element of the tuple, 'no', corresponds to 'Armenia', etc.
+    For example, in Q_1, the corresponding question is: 'Is the population of your country over 30 million?'.
+    The first element of the tuple, 'yes', corresponds to 'Algeria',
+    the second element of the tuple, 'yes', corresponds to 'Angola', etc.
 
     -------------
     filename : .json
         name of json file created.
 
-    questions : tuple
-        list of all the questions for the Asian countries.
+    questions : list
+        list of all the questions for the African countries.
 
-    countries : tuple
-        list of all the Asian countries.
+    countries : list
+        list of all the African countries.
     """
     AFRICA = ("Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde", "Cameroon",
               "Central African Republic", "Chad", "Comoros", "Congo", "Côte d'Ivoire", "Djibouti", "DR Congo",
-              "Egypt",
-              "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea",
-              "Guinea-Bissau",
-              "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali", "Mauritania", "Mauritius",
-              "Morocco",
-              "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda", "Sao Tome and Principe", "Senegal",
-              "Seychelles",
-              "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Sudan", "Tanzania", "Togo", "Tunisia",
-              "Uganda",
-              "Zambia", "Zimbabwe")
+              "Egypt", "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea",
+              "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali",
+              "Mauritania", "Mauritius", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda",
+              "Sao Tome and Principe", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa",
+              "South Sudan", "Sudan", "Tanzania", "Togo", "Tunisia", "Uganda", "Zambia", "Zimbabwe")
 
     # "Is the population of your country over 30 million?"
     Q_1 = ("yes", "yes", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "yes", "yes", "no",
@@ -443,81 +438,82 @@ def create_json_africa(filename, questions, countries):
 
 def create_json_north(filename, questions, countries):
     """
-    Creates a json file for the countries situated in Africa with all their attributes.
+    Creates a json file for the countries situated in North America with all their attributes.
 
     Q_1, Q_2, etc., are lists containing the answers 'yes' or 'no' for every question
-    related to the African countries.
+    related to the North American countries.
 
-    Each element of the list, either 'yes' or 'no', corresponds to the answer in the order of the AFRICA tuple.
+    Each element of the list, either 'yes' or 'no', corresponds to the answer in the order of the NORTH_AMERICA tuple.
 
-    For example, in Q_1, the corresponding question is: "Is the population of your country over 100 million?".
-    The first element of the tuple, 'no', corresponds to 'Afghanistan',
-    the second element of the tuple, 'no', corresponds to 'Armenia', etc.
+    For example, in Q_1, the corresponding question is: "Is the population of your country over 30 million?".
+    The first element of the tuple, 'no', corresponds to 'Antigua and Barbuda',
+    the second element of the tuple, 'no', corresponds to 'Bahamas', etc.
 
     -------------
     filename : .json
         name of json file created.
 
-    questions : tuple
-        list of all the questions for the Asian countries.
+    questions : list
+        list of all the questions for the North American countries.
 
-    countries : tuple
-        list of all the Asian countries.
+    countries : list
+        list of all the North American countries.
     """
     NORTH_AMERICA = ("Antigua and Barbuda", "Bahamas", "Barbados", "Belize", "Canada", "Costa Rica", "Cuba",
                      "Dominica", "Dominican Republic", "El Salvador", "Grenada", "Guatemala", "Haiti",
                      "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Saint Kitts and Nevis",
                      "Saint Lucia", "St. Vincent and Grenadines", "Trinidad and Tobago",
                      "United States of America")
-    # "pop over 30m"
+
+    # "Is the population of your country over 30 million?"
     Q_1 = ('no', 'no', 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no',
            'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'yes')
 
-    # "pop over 10m"
+    # "Is the population of your country over 10 million?"
     Q_2 = ('no', 'no', 'no', 'no', 'yes', 'no', 'yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no',
            'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'yes')
 
-    # "pop over 5m"
+    # "Is the population of your country over 5 million?"
     Q_3 = ("no", "no", "no", "no", "yes", "yes", "yes", "no", "yes", "yes", "no", "yes", "yes", "yes", "no", "yes",
            "yes", "no", "no", "no", "no", "no", "yes")
 
-    # "spanish?"
+    # "Is Spanish an official language in your country?"
     Q_4 = ("no", "no", "no", "no", "no", "yes", "yes", "no", "yes", "yes", "no", "yes", "no", "yes", "no",
            "yes", "yes", "yes", "no", "no", "no", "no", "no")
 
-    # "english?"
+    # "Is English an official language in your country?"
     Q_5 = ("yes", "yes", "yes", "yes", "yes", "no", "no", "yes", "no", "no", "yes", "no", "no", "no", "yes",
            "no", "no", "no", "yes", "yes", "yes", "yes", "yes")
 
-    # "country touches atlantic ocean?"
+    # "Does your country touches the Atlantic Ocean?"
     Q_6 = ("yes", "yes", "yes", "yes", "yes", "yes", "yes", "yes", "yes", "no", "yes", "yes", "yes", "yes", "yes",
            "yes", "yes", "yes", "yes", "yes", "yes", "yes", "yes")
 
-    # "country touching pacific ocean?"
+    # "Does your country touches the Pacific Ocean?"
     Q_7 = ("no", "no", "no", "no", "yes", "yes", "no", "no", "no", "yes", "no", "yes", "no", "no", "no", "yes",
            "yes", "yes", "no", "no", "no", "no", "yes")
 
-    # "flag contains red?"
+    # "Does the flag of your country contains red?"
     Q_8 = ("yes", "no", "no", "yes", "yes", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "no",
            "yes", "no", "yes", "yes", "no", "no", "yes", "yes",)
 
-    # "Flag contains blue?"
+    # "Does the flag of your country contains blue?"
     Q_9 = ("yes", "yes", "yes", "yes", "no", "yes", "yes", "no", "yes", "yes", "no", "yes", "yes", "yes",
            "no", "no", "yes", "yes", "no", "yes", "yes", "no", "yes")
 
-    # "flag contains yellow?"
+    # "Does the flag of your country contains yellow?"
     Q_10 = ("yes", "yes", "yes", "no", "no", "no", "no", "yes", "no", "no", "yes", "no", "no", "no", "yes", "no",
             "no", "no", "yes", "yes", "yes", "no", "no")
 
-    # "flag contains green?"
+    # "Does the flag of your country contains green?"
     Q_11 = ("no", "no", "no", "no", "no", "no", "no", "yes", "no", "no", "yes", "no", "no", "no", "yes", "yes", "no",
             "no", "yes", "no", "yes", "no", "no")
 
-    # "flag contains black?"
+    # "Does the flag of your country contains black?"
     Q_12 = ("yes", "yes", "no", "no", "no", "no", "no", "yes", "no", "no", "no", "no", "no", "no", "yes", "no",
             "no", "no", "yes", "yes", "no", "yes", "no")
 
-    # "flag contains star?"
+    # "Is there a star on the flag of your country?"
     Q_13 = ("no", "no", "no", "no", "no", "no", "yes", "no", "no", "no", "yes", "no", "no", "yes", "no", "no", "no",
             "yes", "yes", "no", "no", "no", "yes")
 
@@ -535,29 +531,30 @@ def create_json_north(filename, questions, countries):
 
 def create_json_south(filename, questions, countries):
     """
-    Creates a json file for the countries situated in Africa with all their attributes.
+    Creates a json file for the countries situated in South America with all their attributes.
 
     Q_1, Q_2, etc., are lists containing the answers 'yes' or 'no' for every question
-    related to the African countries.
+    related to the South American countries.
 
-    Each element of the list, either 'yes' or 'no', corresponds to the answer in the order of the AFRICA tuple.
+    Each element of the list, either 'yes' or 'no', corresponds to the answer in the order of the SOUTH_AMERICA tuple.
 
-    For example, in Q_1, the corresponding question is: "Is the population of your country over 100 million?".
-    The first element of the tuple, 'no', corresponds to 'Afghanistan',
-    the second element of the tuple, 'no', corresponds to 'Armenia', etc.
+    For example, in Q_1, the corresponding question is: 'Is the population of your country over 30 million?'.
+    The first element of the tuple, 'yes', corresponds to 'Argentina',
+    the second element of the tuple, 'no', corresponds to 'Bolivia', etc.
 
     -------------
     filename : .json
         name of json file created.
 
-    questions : tuple
-        list of all the questions for the Asian countries.
+    questions : list
+        list of all the questions for the South American countries.
 
-    countries : tuple
-        list of all the Asian countries.
+    countries : list
+        list of all the South American countries.
     """
     SOUTH_AMERICA = ("Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Ecuador", "Guyana", "Paraguay",
                      "Peru", "Suriname", "Uruguay", "Venezuela")
+
     # "Is the population of your country over 30 million?"
     Q_1 = ("yes", "no", "yes", "no", "yes", "no", "no", "no", "yes", "no", "no", "no")
 
@@ -606,51 +603,51 @@ def create_json_south(filename, questions, countries):
         return f.write(json_file)
 
 
-def create_json_oceany(filename, questions, countries):
+def create_json_oceania(filename, questions, countries):
     """
-    Creates a json file for the countries situated in Africa with all their attributes.
+    Creates a json file for the countries situated in Oceania with all their attributes.
 
     Q_1, Q_2, etc., are lists containing the answers 'yes' or 'no' for every question
-    related to the African countries.
+    related to the Oceanian countries.
 
-    Each element of the list, either 'yes' or 'no', corresponds to the answer in the order of the AFRICA tuple.
+    Each element of the list, either 'yes' or 'no', corresponds to the answer in the order of the OCEANIA tuple.
 
-    For example, in Q_1, the corresponding question is: "Is the population of your country over 100 million?".
-    The first element of the tuple, 'no', corresponds to 'Afghanistan',
-    the second element of the tuple, 'no', corresponds to 'Armenia', etc.
+    For example, in Q_1, the corresponding question is: "Is the population of your country over 10 million?".
+    The first element of the tuple, 'yes', corresponds to 'Australia',
+    the second element of the tuple, 'no', corresponds to 'Fiji', etc.
 
     -------------
     filename : .json
         name of json file created.
 
-    questions : tuple
-        list of all the questions for the Asian countries.
+    questions : list
+        list of all the questions for the Oceanian countries.
 
-    countries : tuple
-        list of all the Asian countries.
+    countries : list
+        list of all the Oceanian countries.
     """
     OCEANIA = ("Australia", "Fiji", "Kiribati", "Marshall Islands", "Micronesia", "Nauru", "New Zealand", "Palau",
                "Papua New Guinea", "Samoa", "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu")
 
-    # "pop over 10m?" 1
+    # "Is the population of your country over 10 million?"
     Q_1 = ("yes", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no")
 
-    # "pop over 1 million?" 2
+    # "Is the population of your country over 1 million?"
     Q_2 = ("yes", "no", "no", "no", "no", "no", "yes", "no", "yes", "no", "no", "no", "no", "no")
 
-    # "flag contains green?" 3
+    # "Does the flag of your country contains green?"
     Q_3 = ("no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "yes", "no", "no", "yes")
 
-    # "flag contains blue?" 4
+    # "Does the flag of your country contains blue?"
     Q_4 = ("yes", "yes", "yes", "yes", "yes", "yes", "yes", "yes", "no", "yes", "yes", "no", "yes", "no")
 
-    # "flag contains red?" 6
+    # "Does the flag of your country contains red?"
     Q_5 = ("yes", "yes", "yes", "no", "no", "no", "yes", "no", "yes", "yes", "no", "yes", "yes", "yes")
 
-    # "flag contains yellow?" 7
+    # "Does the flag of your country contains yellow?"
     Q_6 = ("no", "no", "yes", "no", "no", "yes", "no", "yes", "yes", "no", "yes", "no", "yes", "yes")
 
-    # "flag contains stars?" 5
+    # "Is there a star on the flag of your country?"
     Q_7 = ("yes", "no", "no", "no", "yes", "yes", "yes", "no", "yes", "yes", "yes", "no", "yes", "no")
 
     dict_json = {}

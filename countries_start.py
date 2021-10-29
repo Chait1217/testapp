@@ -27,7 +27,7 @@ def countries_question():
          "Is German an official language in your country?", "Is your country part of the European Union?",
          "Is Euro the official currency of your country?",
          "Is your country situated in the Nordic region?", "Does your country touches The Mediterranean Sea?",
-         "Was your country part of Yougoslavia?", "Does the flag of your country has 3 or more colors?",
+         "Was your country part of Yugoslavia?", "Does the flag of your country has 3 or more colors?",
          "Does the flag of your country has blue cross?", "Does the flag of your country has a cross?",
          "Does the flag of your country contains red?"],
         ["Is the population of your country over 100 million?", "Is the population of your country over 30 million?",
