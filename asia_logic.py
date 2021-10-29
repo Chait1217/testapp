@@ -8,784 +8,809 @@ def asia_logic(self):
     Manages the logic of the questions according to the answers given by the user
     for the countries situated in Asia.
     """
-    if self.app.root.ids.third.questions == "Is the population of your country over 100 million?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
-            self.questions_country.remove("Is the population of your country over 100 million?")
-        if self.answer_user == 'yes':
-            self.questions_country.remove("Is the population of your country over 100 million?")
-            self.questions_country.remove("Is the population of your country over 30 million?")
-            self.questions_country.remove("Is the population of your country over 10 million?")
-            self.questions_country.remove("Is the population of your country over 5 million?")
-            self.questions_country.remove("Is your country situated in Middle East region?")
-            self.questions_country.remove("Is Arabic an official language in your country?")
+    YES = "yes"
+    NO = "no"
+    DNK = "dnk"
+    Q1 = "Is the population of your country over 100 million?"
+    Q2 = "Is the population of your country over 30 million?"
+    Q3 = "Is the population of your country over 10 million?"
+    Q4 = "Is the population of your country over 5 million?"
+    Q5 = "Is your country situated in Middle East region?"
+    Q6 = "Is Arabic an official language in your country?"
+    Q7 = "Is Folk religion the most practiced religion in your country?"
+    Q8 = "Is Hinduism the most practiced religion in your country?"
+    Q9 = "Is there a circled object or a sun on the flag of your country?"
+    Q10 = "Is Christianity the most practiced religion in your country?"
+    Q11 = "Is Buddhism the most practiced religion in your country?"
+    Q12 = "Is your country an island?"
+    Q13 = "Does your country touches the Pacific Ocean?"
+    Q14 = "Does the flag of your country contains yellow?"
+    Q15 = "Is there a moon on the flag your country?"
+    Q16 = "Is Islam the most practiced religion in your religion?"
+    Q17 = "Does the flag of your country contains blue?"
+    Q18 = "Is there a star on the flag of your country?"
+    Q19 = "Does your country touches the Indian Ocean?"
+    Q20 = "Does the flag of your country contains red?"
+    Q21 = "Does the flag of your country contains green?"
 
-    if self.app.root.ids.third.questions == "Is the population of your country over 30 million?":
-        if self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Is the population of your country over 30 million?")
-            except ValueError:
-                pass
-        if self.answer_user == 'no':
-            try:
-                self.questions_country.remove("Is the population of your country over 100 million?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is the population of your country over 30 million?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
-            except ValueError:
-                pass
-        if self.answer_user == 'yes':
-            try:
-                self.questions_country.remove("Is the population of your country over 30 million?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is the population of your country over 10 million?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is the population of your country over 5 million?")
-            except ValueError:
-                pass
+    if self.app.root.ids.third.questions == Q1:
+        if self.answer_user == NO or self.answer_user == DNK:
+            self.questions_country.remove(Q1)
+        if self.answer_user == YES:
+            self.questions_country.remove(Q1)
+            self.questions_country.remove(Q2)
+            self.questions_country.remove(Q3)
+            self.questions_country.remove(Q4)
+            self.questions_country.remove(Q5)
+            self.questions_country.remove(Q6)
 
-    if self.app.root.ids.third.questions == "Is the population of your country over 10 million?":
-        if self.answer_user == "dnk":
+    if self.app.root.ids.third.questions == Q2:
+        if self.answer_user == DNK:
             try:
-                self.questions_country.remove("Is the population of your country over 10 million?")
+                self.questions_country.remove(Q2)
             except ValueError:
                 pass
-        if self.answer_user == 'no':
+        if self.answer_user == NO:
             try:
-                self.questions_country.remove("Is the population of your country over 100 million?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is the population of your country over 30 million?")
+                self.questions_country.remove(Q1)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 10 million?")
+                self.questions_country.remove(Q2)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q2)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
-            except ValueError:
-                pass
-        if self.answer_user == 'yes':
-            try:
-                self.questions_country.remove("Is the population of your country over 10 million?")
+                self.questions_country.remove(Q3)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 5 million?")
+                self.questions_country.remove(Q4)
             except ValueError:
                 pass
 
-    if self.app.root.ids.third.questions == "Is the population of your country over 5 million?":
-        if self.answer_user == 'dnk':
+    if self.app.root.ids.third.questions == Q3:
+        if self.answer_user == DNK:
             try:
-                self.questions_country.remove("Is the population of your country over 5 million?")
+                self.questions_country.remove(Q3)
             except ValueError:
                 pass
-        if self.answer_user == 'yes':
+        if self.answer_user == NO:
             try:
-                self.questions_country.remove("Is the population of your country over 5 million?")
-            except ValueError:
-                pass
-        if self.answer_user == 'no':
-            try:
-                self.questions_country.remove("Is the population of your country over 5 million?")
+                self.questions_country.remove(Q1)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 10 million?")
+                self.questions_country.remove(Q2)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 30 million?")
+                self.questions_country.remove(Q3)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 100 million?")
+                self.questions_country.remove(Q7)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
+                self.questions_country.remove(Q8)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q3)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is there a circled object or a sun on the flag of your country?")
+                self.questions_country.remove(Q4)
             except ValueError:
                 pass
 
-    if self.app.root.ids.third.questions == "Is your country situated in Middle East region?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
+    if self.app.root.ids.third.questions == Q4:
+        if self.answer_user == DNK:
             try:
-                self.questions_country.remove("Is your country situated in Middle East region?")
+                self.questions_country.remove(Q4)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q4)
+            except ValueError:
+                pass
+        if self.answer_user == NO:
+            try:
+                self.questions_country.remove(Q4)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q3)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q2)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q1)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q8)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q9)
             except ValueError:
                 pass
 
-        if self.answer_user == "yes":
+    if self.app.root.ids.third.questions == Q5:
+        if self.answer_user == DNK or self.answer_user == NO:
             try:
-                self.questions_country.remove("Is your country situated in Middle East region?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is the population of your country over 100 million?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Christianity the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Buddhism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Island ?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does your country touches the Pacific Ocean?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does the flag of your country contains yellow?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is there a moon on the flag your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is there a circled object or a sun on the flag of your country?")
-            except ValueError:
-                pass
-    if self.app.root.ids.third.questions == "Is Arabic an official language in your country?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
-            try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is the population of your country over 100 million?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Christianity the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Buddhism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Islam the most practiced religion in your religion?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your country an island?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does your country touches the Pacific Ocean?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does the flag of your country contains blue?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does the flag of your country contains yellow?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is there a moon on the flag your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is there a circled object or a sun on the flag of your country?")
+                self.questions_country.remove(Q5)
             except ValueError:
                 pass
 
-    if self.app.root.ids.third.questions == "Is Hinduism the most practiced religion in your country?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
+        if self.answer_user == YES:
             try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
+                self.questions_country.remove(Q5)
             except ValueError:
                 pass
-        if self.answer_user == "yes":
             try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
+                self.questions_country.remove(Q1)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 5 million?")
+                self.questions_country.remove(Q8)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 10 million?")
+                self.questions_country.remove(Q7)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your country situated in Middle East region?")
+                self.questions_country.remove(Q10)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
+                self.questions_country.remove(Q11)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
+                self.questions_country.remove(Q12)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
+                self.questions_country.remove(Q13)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Christianity the most practiced religion in your country?")
+                self.questions_country.remove(Q14)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Buddhism the most practiced religion in your country?")
+                self.questions_country.remove(Q15)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Islam the most practiced religion in your religion?")
+                self.questions_country.remove(Q9)
             except ValueError:
                 pass
+    if self.app.root.ids.third.questions == Q6:
+        if self.answer_user == DNK or self.answer_user == NO:
             try:
-                self.questions_country.remove("Is your country an island?")
+                self.questions_country.remove(Q6)
             except ValueError:
                 pass
+        if self.answer_user == YES:
             try:
-                self.questions_country.remove("Does your country touches the Pacific Ocean?")
+                self.questions_country.remove(Q6)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Does the flag of your country contains blue?")
+                self.questions_country.remove(Q1)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Does the flag of your country contains yellow?")
+                self.questions_country.remove(Q8)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is there a moon on the flag your country?")
+                self.questions_country.remove(Q7)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is there a star on the flag of your country?")
+                self.questions_country.remove(Q10)
             except ValueError:
                 pass
-    if self.app.root.ids.third.questions == "Is Folk religion the most practiced religion in your country?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
             try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
+                self.questions_country.remove(Q11)
             except ValueError:
                 pass
-        if self.answer_user == "yes":
             try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
+                self.questions_country.remove(Q16)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 5 million?")
+                self.questions_country.remove(Q12)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 10 million?")
+                self.questions_country.remove(Q13)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 30 million?")
+                self.questions_country.remove(Q17)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your country situated in Middle East region?")
+                self.questions_country.remove(Q14)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
+                self.questions_country.remove(Q15)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Christianity the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Buddhism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Islam the most practiced religion in your religion?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your country an island?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does your country touches the Indian Ocean?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does your country touches the Pacific Ocean?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does the flag of your country contains blue?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does the flag of your country contains yellow?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does the flag of your country contains red?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does the flag of your country contains green?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is there a star on the flag of your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is there a moon on the flag your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is there a circled object or a sun on the flag of your country?")
-            except ValueError:
-                pass
-    if self.app.root.ids.third.questions == "Is Christianity the most practiced religion in your country?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
-            try:
-                self.questions_country.remove("Is Christianity the most practiced religion in your country?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Is Christianity the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your country situated in Middle East region?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Buddhism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Islam the most practiced religion in your religion?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does the flag of your country contains red?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does the flag of your country contains green?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is there a moon on the flag your country?")
-            except ValueError:
-                pass
-    if self.app.root.ids.third.questions == "Is Buddhism the most practiced religion in your country?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
-            try:
-                self.questions_country.remove("Is Buddhism the most practiced religion in your country?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Is Buddhism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Christianity the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your country situated in Middle East region?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Islam the most practiced religion in your religion?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
-            except ValueError:
-                pass
-    if self.app.root.ids.third.questions == "Is Islam the most practiced religion in your religion?":
-        if self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Is Islam the most practiced religion in your religion?")
-            except ValueError:
-                pass
-        if self.answer_user == "no":
-            try:
-                self.questions_country.remove("Is Islam the most practiced religion in your religion?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Is Islam the most practiced religion in your religion?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Buddhism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Christianity the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
+                self.questions_country.remove(Q9)
             except ValueError:
                 pass
 
-    if self.app.root.ids.third.questions == "Is your country an island?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
+    if self.app.root.ids.third.questions == Q8:
+        if self.answer_user == DNK or self.answer_user == NO:
             try:
-                self.questions_country.remove("Is your country an island?")
+                self.questions_country.remove(Q8)
             except ValueError:
                 pass
-        if self.answer_user == "yes":
+        if self.answer_user == YES:
             try:
-                self.questions_country.remove("Is your country an island?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your country situated in Middle East region?")
+                self.questions_country.remove(Q8)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
+                self.questions_country.remove(Q4)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
+                self.questions_country.remove(Q3)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
+                self.questions_country.remove(Q5)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Does the flag of your country contains red?")
+                self.questions_country.remove(Q6)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q8)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q10)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q11)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q16)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q12)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q13)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q17)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q14)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q15)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q18)
+            except ValueError:
+                pass
+    if self.app.root.ids.third.questions == Q7:
+        if self.answer_user == DNK or self.answer_user == NO:
+            try:
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q4)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q3)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q2)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q5)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q6)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q8)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q10)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q11)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q16)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q12)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q19)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q13)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q17)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q14)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q20)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q21)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q18)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q15)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q9)
+            except ValueError:
+                pass
+    if self.app.root.ids.third.questions == Q10:
+        if self.answer_user == DNK or self.answer_user == NO:
+            try:
+                self.questions_country.remove(Q10)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q10)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q5)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q6)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q11)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q16)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q8)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q20)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q21)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q15)
+            except ValueError:
+                pass
+    if self.app.root.ids.third.questions == Q11:
+        if self.answer_user == DNK or self.answer_user == NO:
+            try:
+                self.questions_country.remove(Q11)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q11)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q10)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q5)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q6)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q16)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q8)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+    if self.app.root.ids.third.questions == Q16:
+        if self.answer_user == DNK:
+            try:
+                self.questions_country.remove(Q16)
+            except ValueError:
+                pass
+        if self.answer_user == NO:
+            try:
+                self.questions_country.remove(Q16)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q6)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q16)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q11)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q10)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q8)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q7)
             except ValueError:
                 pass
 
-    if self.app.root.ids.third.questions == "Does your country touches the Indian Ocean?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
+    if self.app.root.ids.third.questions == Q12:
+        if self.answer_user == DNK or self.answer_user == NO:
             try:
-                self.questions_country.remove("Does your country touches the Indian Ocean?")
+                self.questions_country.remove(Q12)
             except ValueError:
                 pass
-        if self.answer_user == "yes":
+        if self.answer_user == YES:
             try:
-                self.questions_country.remove("Does your country touches the Indian Ocean?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
-            except ValueError:
-                pass
-
-    if self.app.root.ids.third.questions == "Does your country touches the Pacific Ocean?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
-            try:
-                self.questions_country.remove("Does your country touches the Pacific Ocean?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Does your country touches the Pacific Ocean?")
+                self.questions_country.remove(Q12)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your country situated in Middle East region?")
+                self.questions_country.remove(Q5)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
+                self.questions_country.remove(Q6)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
+                self.questions_country.remove(Q8)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Does the flag of your country contains red?")
+                self.questions_country.remove(Q7)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Does the flag of your country contains green?")
+                self.questions_country.remove(Q20)
             except ValueError:
                 pass
 
-    if self.app.root.ids.third.questions == "Does the flag of your country contains red?":
-        if self.answer_user == 'dnk' or self.answer_user == "yes":
+    if self.app.root.ids.third.questions == Q19:
+        if self.answer_user == DNK or self.answer_user == NO:
             try:
-                self.questions_country.remove("Does the flag of your country contains red?")
+                self.questions_country.remove(Q19)
             except ValueError:
                 pass
-        if self.answer_user == "no":
+        if self.answer_user == YES:
             try:
-                self.questions_country.remove("Does the flag of your country contains red?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
+                self.questions_country.remove(Q19)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Christianity the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your country an island?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does your country touches the Pacific Ocean?")
+                self.questions_country.remove(Q7)
             except ValueError:
                 pass
 
-    if self.app.root.ids.third.questions == "Does the flag of your country contains blue?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
+    if self.app.root.ids.third.questions == Q13:
+        if self.answer_user == DNK or self.answer_user == NO:
             try:
-                self.questions_country.remove("Does the flag of your country contains blue?")
+                self.questions_country.remove(Q13)
             except ValueError:
                 pass
-        if self.answer_user == "yes":
+        if self.answer_user == YES:
             try:
-                self.questions_country.remove("Does the flag of your country contains blue?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
+                self.questions_country.remove(Q13)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
-            except ValueError:
-                pass
-
-    if self.app.root.ids.third.questions == "Does the flag of your country contains green?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
-            try:
-                self.questions_country.remove("Does the flag of your country contains green?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Does the flag of your country contains green?")
+                self.questions_country.remove(Q5)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
+                self.questions_country.remove(Q6)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Christianity the most practiced religion in your country?")
+                self.questions_country.remove(Q8)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Does your country touches the Pacific Ocean?")
+                self.questions_country.remove(Q20)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q21)
             except ValueError:
                 pass
 
-    if self.app.root.ids.third.questions == "Does the flag of your country contains yellow?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
+    if self.app.root.ids.third.questions == Q20:
+        if self.answer_user == DNK or self.answer_user == YES:
             try:
-                self.questions_country.remove("Does the flag of your country contains yellow?")
+                self.questions_country.remove(Q20)
             except ValueError:
                 pass
-        if self.answer_user == "yes":
+        if self.answer_user == NO:
             try:
-                self.questions_country.remove("Does the flag of your country contains yellow?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your country situated in Middle East region?")
+                self.questions_country.remove(Q20)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
+                self.questions_country.remove(Q7)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
-            except ValueError:
-                pass
-
-    if self.app.root.ids.third.questions == "Is there a star on the flag of your country?":
-        if self.answer_user == 'dnk':
-            try:
-                self.questions_country.remove("Is there a star on the flag of your country?")
-            except ValueError:
-                pass
-        if self.answer_user == "no":
-            try:
-                self.questions_country.remove("Is there a star on the flag of your country?")
+                self.questions_country.remove(Q10)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
+                self.questions_country.remove(Q12)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q13)
             except ValueError:
                 pass
 
-        if self.answer_user == "yes":
+    if self.app.root.ids.third.questions == Q17:
+        if self.answer_user == DNK or self.answer_user == NO:
             try:
-                self.questions_country.remove("Is there a star on the flag of your country?")
+                self.questions_country.remove(Q17)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q17)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
-            except ValueError:
-                pass
-
-    if self.app.root.ids.third.questions == "Is there a moon on the flag your country?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
-            try:
-                self.questions_country.remove("Is there a moon on the flag your country?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Is there a moon on the flag your country?")
+                self.questions_country.remove(Q6)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Hinduism the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your country situated in Middle East region?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is Christianity the most practiced religion in your country?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is there a circled object or a sun on the flag of your country?")
+                self.questions_country.remove(Q7)
             except ValueError:
                 pass
 
-    if self.app.root.ids.third.questions == "Is there a circled object or a sun on the flag of your country?":
-        if self.answer_user == 'dnk' or self.answer_user == "no":
+    if self.app.root.ids.third.questions == Q21:
+        if self.answer_user == DNK or self.answer_user == NO:
             try:
-                self.questions_country.remove("Is there a circled object or a sun on the flag of your country?")
+                self.questions_country.remove(Q21)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q21)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q10)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q13)
             except ValueError:
                 pass
 
-        if self.answer_user == "yes":
+    if self.app.root.ids.third.questions == Q14:
+        if self.answer_user == DNK or self.answer_user == NO:
             try:
-                self.questions_country.remove("Is there a circled object or a sun on the flag of your country?")
+                self.questions_country.remove(Q14)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q14)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 5 million?")
+                self.questions_country.remove(Q5)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your country situated in Middle East region?")
+                self.questions_country.remove(Q6)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Arabic an official language in your country?")
+                self.questions_country.remove(Q8)
+            except ValueError:
+                pass
+
+    if self.app.root.ids.third.questions == Q18:
+        if self.answer_user == DNK:
+            try:
+                self.questions_country.remove(Q18)
+            except ValueError:
+                pass
+        if self.answer_user == NO:
+            try:
+                self.questions_country.remove(Q18)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is Folk religion the most practiced religion in your country?")
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q18)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is there a moon on the flag your country?")
+                self.questions_country.remove(Q8)
+            except ValueError:
+                pass
+
+    if self.app.root.ids.third.questions == Q15:
+        if self.answer_user == DNK or self.answer_user == NO:
+            try:
+                self.questions_country.remove(Q15)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q15)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q8)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q5)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q6)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q10)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q9)
+            except ValueError:
+                pass
+
+    if self.app.root.ids.third.questions == Q9:
+        if self.answer_user == DNK or self.answer_user == NO:
+            try:
+                self.questions_country.remove(Q9)
+            except ValueError:
+                pass
+
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q9)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q4)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q5)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q6)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q15)
             except ValueError:
                 pass

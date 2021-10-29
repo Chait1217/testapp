@@ -4,10 +4,12 @@
     MDBoxLayout:
         orientation: "vertical"
         MDToolbar:
+            id: toolbar
             title: "Homepage"
             left_action_items: [["menu",lambda x:app.change_screen_and_call_reset_function("sixth")]]
         RelativeLayout:
             MDLabel:
+                id: welcome
                 font_style: "H5"
                 text: "WELCOME TO AKIPING"
                 halign: "center"
@@ -15,6 +17,7 @@
                 pos_hint:{"center_x":.5,"center_y": .87}
                 color: 1,0.87,0.69,1
             MDFillRoundFlatButton:
+                id: button_mind
                 text: "I will read your mind."
                 size_hint: .5, .1
                 pos_hint: {"center_x":.5,"center_y":.25}

@@ -169,6 +169,7 @@ class TTPlayersScreen(Screen):
         elif self.index < 7:
             self.answer = answer_given
             print(self.answer)
+            print("called question_manager")
             self.game.question_manager()
         else:
             self.call_manager(answer_given)
@@ -183,6 +184,11 @@ class ResultScreen(Screen):
 
 class NavDrawer(Screen):
     """Navigation drawer screen."""
+    pass
+
+
+class LanguageScreen(Screen):
+    """Choose to play the game in french or in english."""
     pass
 
 

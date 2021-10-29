@@ -4,16 +4,19 @@
     MDBoxLayout:
         orientation: "vertical"
         MDToolbar:
+            id: toolbar
             title: "Themes"
             right_action_items: [["home",lambda x:app.change_screen_and_call_reset_function("main")]]
         RelativeLayout:
             MDLabel:
+                id: choose
                 font_style: "H5"
                 halign:"center"
                 text: "CHOOSE YOUR THEME"
                 pos_hint:{"center_x":.5,"center_y": .8}
                 color: 1,0.87,0.69,1
             MDFillRoundFlatButton:
+                id: country
                 size_hint: .4, .1
                 text: "Countries"
                 pos_hint: {"center_x":.25,"center_y": .4}
@@ -21,6 +24,7 @@
                     app.root.current = "third"
                     root.manager.transition.direction = "left"
             MDFillRoundFlatButton:
+                id: player
                 size_hint: .4, .1
                 text: "Top 100 TT Players"
                 pos_hint: {"center_x":.75,"center_y": .4}

@@ -3,286 +3,306 @@ A function that handles the logic of the questions.
 """
 
 
-def europe_male_check(self):
+def europe_male_logic(self):
     """
     Manages the logic of the questions according to the answers given by the user
-    for men table tennis players situated in Europe.
+    for the male table tennis players situated in Europe.
     """
-    if self.app.root.ids.fourth.questions == "Does your player play with pimples?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
-            self.questions_country.remove("Does your player play with pimples?")
-        if self.answer_user == "yes":
-            self.questions_country.remove("Does your player play with pimples?")
-            self.questions_country.remove("Is your player left handed?")
-            self.questions_country.remove("Has your player ever won an olympic medal in singles or in team event?")
-            self.questions_country.remove("Is your player from England?")
-            self.questions_country.remove("Is your player Austrian?")
-            self.questions_country.remove("Is your player Croatian?")
+    YES = "yes"
+    NO = "no"
+    DNK = "dnk"
+    Q1 = "Does your player play with pimples?"
+    Q2 = "Is your player left handed?"
+    Q3 = "Has your player ever won an olympic medal in singles or in team event?"
+    Q4 = "Is your player from England?"
+    Q5 = "Is your player Austrian?"
+    Q6 = "Is your player Croatian?"
+    Q7 = "Does your player serves with the backhand?"
+    Q8 = "Is your player older than 30 years old?"
+    Q9 = "Did your player participate in 2016 Olympics in singles or team event?"
+    Q10 = "Did your player participate in 2021 Olympics in singles or team event?"
+    Q11 = "Is your player sponsored by butterfly?"
+    Q12 = "Does your player serves the forehand hook serve?"
+    Q13 = "Is your player Swedish?"
+    Q14 = "Is your player German?"
+    Q15 = "Does your player serves the forehand reverse pendulum serve?"
 
-    if self.app.root.ids.fourth.questions == "Is your player left handed?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Is your player left handed?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Is your player left handed?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does your player serves with the backhand?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player from England?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player Austrian?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player Croatian?")
-            except ValueError:
-                pass
+    if self.app.root.ids.fourth.questions == Q1:
+        if self.answer_user == NO or self.answer_user == DNK:
+            self.questions_players.remove(Q1)
+        if self.answer_user == YES:
+            self.questions_players.remove(Q1)
+            self.questions_players.remove(Q2)
+            self.questions_players.remove(Q3)
+            self.questions_players.remove(Q4)
+            self.questions_players.remove(Q5)
+            self.questions_players.remove(Q6)
 
-    if self.app.root.ids.fourth.questions == "Is your player older than 30 years old?":
-        if self.answer_user == 'yes' or self.answer_user == "dnk":
+    if self.app.root.ids.fourth.questions == Q2:
+        if self.answer_user == NO or self.answer_user == DNK:
             try:
-                self.questions_country.remove("Is your player older than 30 years old?")
+                self.questions_players.remove(Q2)
             except ValueError:
                 pass
-        if self.answer_user == "no":
+        if self.answer_user == YES:
             try:
-                self.questions_country.remove("Is your player older than 30 years old?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player Austrian?")
-            except ValueError:
-                pass
-    if self.app.root.ids.fourth.questions == "Did your player participate in 2016 Olympics in singles or team event?":
-        if self.answer_user == "no":
-            try:
-                self.questions_country.remove("Did your player participate in 2016 Olympics in singles or team event?")
+                self.questions_players.remove(Q2)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player Austrian?")
+                self.questions_players.remove(Q7)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player from England?")
-            except ValueError:
-                pass
-        if self.answer_user == 'yes' or self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Did your player participate in 2016 Olympics in singles or team event?")
-            except ValueError:
-                pass
-    if self.app.root.ids.fourth.questions == "Did your player participate in 2021 Olympics in singles or team event?":
-        if self.answer_user == 'yes' or self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Did your player participate in 2021 Olympics in singles or team event?")
-            except ValueError:
-                pass
-        if self.answer_user == "no":
-            try:
-                self.questions_country.remove("Did your player participate in 2021 Olympics in singles or team event?")
+                self.questions_players.remove(Q4)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Has your player ever won an olympic medal in singles or in team event?")
+                self.questions_players.remove(Q5)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player Croatian?")
-            except ValueError:
-                pass
-    if self.app.root.ids.fourth.questions == "Has your player ever won an olympic medal in singles or in team event?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Has your player ever won an olympic medal in singles or in team event?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Has your player ever won an olympic medal in singles or in team event?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player sponsored by butterfly?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does your player serves the forehand hook serve?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player from England?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player Austrian?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player Croatian?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player Swedish?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player German?")
-            except ValueError:
-                pass
-    if self.app.root.ids.fourth.questions == "Is your player sponsored by butterfly?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Is your player sponsored by butterfly?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Is your player sponsored by butterfly?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player from England?")
+                self.questions_players.remove(Q6)
             except ValueError:
                 pass
 
-    if self.app.root.ids.fourth.questions == "Does your player serves with the backhand?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
+    if self.app.root.ids.fourth.questions == Q8:
+        if self.answer_user == YES or self.answer_user == DNK:
             try:
-                self.questions_country.remove("Does your player serves with the backhand?")
+                self.questions_players.remove(Q8)
             except ValueError:
                 pass
-        if self.answer_user == "yes":
+        if self.answer_user == NO:
             try:
-                self.questions_country.remove("Does your player serves with the backhand?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player from England?")
+                self.questions_players.remove(Q8)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player Austrian?")
+                self.questions_players.remove(Q5)
+            except ValueError:
+                pass
+    if self.app.root.ids.fourth.questions == Q9:
+        if self.answer_user == NO:
+            try:
+                self.questions_players.remove(Q9)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q5)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q4)
+            except ValueError:
+                pass
+        if self.answer_user == YES or self.answer_user == DNK:
+            try:
+                self.questions_players.remove(Q9)
+            except ValueError:
+                pass
+    if self.app.root.ids.fourth.questions == Q10:
+        if self.answer_user == YES or self.answer_user == DNK:
+            try:
+                self.questions_players.remove(Q10)
+            except ValueError:
+                pass
+        if self.answer_user == NO:
+            try:
+                self.questions_players.remove(Q10)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q3)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q6)
+            except ValueError:
+                pass
+    if self.app.root.ids.fourth.questions == Q3:
+        if self.answer_user == NO or self.answer_user == DNK:
+            try:
+                self.questions_players.remove(Q3)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_players.remove(Q3)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q11)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q12)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q4)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q5)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q6)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q13)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q14)
+            except ValueError:
+                pass
+    if self.app.root.ids.fourth.questions == Q11:
+        if self.answer_user == NO or self.answer_user == DNK:
+            try:
+                self.questions_players.remove(Q11)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_players.remove(Q11)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q4)
             except ValueError:
                 pass
 
-    if self.app.root.ids.fourth.questions == "Does your player serves the forehand reverse pendulum serve?":
+    if self.app.root.ids.fourth.questions == Q7:
+        if self.answer_user == NO or self.answer_user == DNK:
+            try:
+                self.questions_players.remove(Q7)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_players.remove(Q7)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q4)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q5)
+            except ValueError:
+                pass
+
+    if self.app.root.ids.fourth.questions == Q15:
         try:
-            self.questions_country.remove("Does your player serves the forehand reverse pendulum serve?")
+            self.questions_players.remove(Q15)
         except ValueError:
             pass
 
-    if self.app.root.ids.fourth.questions == "Does your player serves the forehand hook serve?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
+    if self.app.root.ids.fourth.questions == Q12:
+        if self.answer_user == NO or self.answer_user == DNK:
             try:
-                self.questions_country.remove("Does your player serves the forehand hook serve?")
+                self.questions_players.remove(Q12)
             except ValueError:
                 pass
-        if self.answer_user == "yes":
+        if self.answer_user == YES:
             try:
-                self.questions_country.remove("Does your player serves the forehand hook serve?")
+                self.questions_players.remove(Q12)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player Austrian?")
+                self.questions_players.remove(Q5)
             except ValueError:
                 pass
 
-    if self.app.root.ids.fourth.questions == "Is your player Swedish?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
+    if self.app.root.ids.fourth.questions == Q13:
+        if self.answer_user == NO or self.answer_user == DNK:
             try:
-                self.questions_country.remove("Is your player Swedish?")
+                self.questions_players.remove(Q13)
             except ValueError:
                 pass
-        if self.answer_user == "yes":
+        if self.answer_user == YES:
             try:
-                self.questions_country.remove("Is your player Swedish?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is your player from England?")
+                self.questions_players.remove(Q13)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player Austrian?")
+                self.questions_players.remove(Q4)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player Croatian?")
+                self.questions_players.remove(Q5)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player German?")
-            except ValueError:
-                pass
-    if self.app.root.ids.fourth.questions == "Is your player German?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Is your player German?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Is your player German?")
+                self.questions_players.remove(Q6)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player from England?")
+                self.questions_players.remove(Q14)
+            except ValueError:
+                pass
+    if self.app.root.ids.fourth.questions == Q14:
+        if self.answer_user == NO or self.answer_user == DNK:
+            try:
+                self.questions_players.remove(Q14)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_players.remove(Q14)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player Austrian?")
+                self.questions_players.remove(Q4)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player Croatian?")
-            except ValueError:
-                pass
-    if self.app.root.ids.fourth.questions == "Is your player from England?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Is your player from England?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Is your player from England?")
+                self.questions_players.remove(Q5)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player Austrian?")
+                self.questions_players.remove(Q6)
+            except ValueError:
+                pass
+    if self.app.root.ids.fourth.questions == Q4:
+        if self.answer_user == NO or self.answer_user == DNK:
+            try:
+                self.questions_players.remove(Q4)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_players.remove(Q4)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player Croatian?")
-            except ValueError:
-                pass
-    if self.app.root.ids.fourth.questions == "Is your player Austrian?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Is your player Austrian?")
-            except ValueError:
-                pass
-        if self.answer_user == "yes":
-            try:
-                self.questions_country.remove("Is your player Austrian?")
+                self.questions_players.remove(Q5)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is your player Croatian?")
+                self.questions_players.remove(Q6)
             except ValueError:
                 pass
-    if self.app.root.ids.fourth.questions == "Is your player Croatian?":
+    if self.app.root.ids.fourth.questions == Q5:
+        if self.answer_user == NO or self.answer_user == DNK:
+            try:
+                self.questions_players.remove(Q5)
+            except ValueError:
+                pass
+        if self.answer_user == YES:
+            try:
+                self.questions_players.remove(Q5)
+            except ValueError:
+                pass
+            try:
+                self.questions_players.remove(Q6)
+            except ValueError:
+                pass
+    if self.app.root.ids.fourth.questions == Q6:
         try:
-            self.questions_country.remove("Is your player Croatian?")
+            self.questions_players.remove(Q6)
         except ValueError:
             pass
+

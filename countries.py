@@ -4,7 +4,6 @@ Countries Theme.
 Contains all the code to play the game.
 """
 
-
 from kivy.app import App
 
 import json
@@ -25,13 +24,13 @@ class Countries:
     ...
     Attributes
     ----------
-    continent : tuple
+    continent : list
         contains a list of all the countries separated by continents.
 
-    continent_q : tuple
+    continent_q : list
         contains a list of all the questions for every continents.
 
-    questions_first : tuple
+    questions_first : list
         contains a list of all the initial questions.
 
     app : object
@@ -40,6 +39,12 @@ class Countries:
     index_question : int
         used for changing the questions.
     """
+
+    SCREEN_NAME = "fifth"
+    RESULT_MESSAGE = "You were thinking of: "
+    NOT_FOUND_MESSAGE = "Sorry, couldn't guess your country."
+    NOT_FOUND_MESSAGE1 = "Sorry, couldn't guess your country. These are the possible countries: "
+
     def __init__(self):
         self.continent = countries_start.countries_list()
         self.continent_q = countries_start.countries_question()
@@ -60,7 +65,7 @@ class Countries:
             questions_ask = self.continent_q[self.index_question]
             if self.index_question == 5:
                 self.results = continent_countries
-                json_countries.create_json_oceany("answers.json", questions_ask, continent_countries)
+                json_countries.create_json_oceania("answers.json", questions_ask, continent_countries)
                 with open("answers.json", "r", encoding='utf-8') as f:
                     self.transition(json.loads(f.read()), continent_countries, questions_ask)
             if self.index_question == 4:
@@ -94,29 +99,29 @@ class Countries:
                 self.app.root.ids.third.set_question(self.questions_first[self.index_question])
             except IndexError:
                 sm = App.get_running_app().root
-                sm.current = "fifth"
-                self.app.root.ids.fifth.display_answer("Sorry, couldn't guess your country.")
+                sm.current = self.SCREEN_NAME
+                self.app.root.ids.fifth.display_answer(self.NOT_FOUND_MESSAGE)
 
     def welcome(self):
         """First question which is asked to the user."""
         self.app.root.ids.third.set_question("Is your country situated in Europe?")
 
-    def transition(self, answers_recieved, continent, questions):
+    def transition(self, answers_received, continent, questions):
         """
         Receives the information of the json file, the list of questions
         and the list of the countries.
 
         ----------
-        answers_recieved :
+        answers_received :
             contains the json file's information.
 
-        continent : tuple
+        continent : list
             contains a list of the countries.
 
-        questions : tuple
+        questions : list
             contains a list of the questions.
         """
-        self.answers = answers_recieved
+        self.answers = answers_received
         self.continent_country = continent
         self.questions_country = questions
         self.app.root.ids.third.set_question(self.questions_country[0])
@@ -141,7 +146,7 @@ class Countries:
                 if self.answers[country][self.questions_country[0]] == self.answer_user:
                     set_answer.append(country)
         if len(self.continent_country) == 46:
-            europe_logic.europe_check(self)
+            europe_logic.europe_logic(self)
         if len(self.continent_country) == 45:
             asia_logic.asia_logic(self)
         if len(self.continent_country) == 14:
@@ -158,43 +163,42 @@ class Countries:
         return self.results
 
     def game_manager(self):
-        """Calls the get_answer function and checks the length of result.
+        """
+        Calls the get_answer function and checks the length of result.
         If no answer is found, it moves on to the next question.
+
+        If an answer is found it changes the screen to the result page.
         """
         self.results = self.get_answer()
         print(self.results)
         if len(self.results) == 1:
             guess = list(self.results)
             sm = App.get_running_app().root
-            sm.current = "fifth"
-            self.app.root.ids.fifth.display_answer("Your guess was: " + guess[0])
+            sm.current = self.SCREEN_NAME
+            self.app.root.ids.fifth.display_answer(self.RESULT_MESSAGE + guess[0])
         elif len(self.results) == 0:
             sm = App.get_running_app().root
-            sm.current = "fifth"
+            sm.current = self.SCREEN_NAME
             if len(self.store_answer) < 6:
                 result_without_quotes = ", ".join(list(self.store_answer))
-                self.app.root.ids.fifth.display_answer("Sorry, couldn't guess your country."
-                                                       " These are the possible countries: " + str(
-                    result_without_quotes))
+                self.app.root.ids.fifth.display_answer(self.NOT_FOUND_MESSAGE1 + str(result_without_quotes))
             else:
                 sm = App.get_running_app().root
-                sm.current = "fifth"
-                self.app.root.ids.fifth.display_answer("Sorry, couldn't guess your country.")
+                sm.current = self.SCREEN_NAME
+                self.app.root.ids.fifth.display_answer(self.NOT_FOUND_MESSAGE)
         else:
             try:
                 self.app.root.ids.third.set_question(self.questions_country[0])
             except IndexError:
                 if len(self.results) < 6:
                     sm = App.get_running_app().root
-                    sm.current = "fifth"
+                    sm.current = self.SCREEN_NAME
                     result_without_quotes = ", ".join(list(self.results))
-                    self.app.root.ids.fifth.display_answer("Sorry, couldn't guess your country."
-                                                           " These are the possible countries: "
-                                                           + str(result_without_quotes))
+                    self.app.root.ids.fifth.display_answer(self.NOT_FOUND_MESSAGE1 + str(result_without_quotes))
                 else:
                     sm = App.get_running_app().root
-                    sm.current = "fifth"
-                    self.app.root.ids.fifth.display_answer("Sorry, couldn't guess your country.")
+                    sm.current = self.SCREEN_NAME
+                    self.app.root.ids.fifth.display_answer(self.NOT_FOUND_MESSAGE)
 
     def reset_index(self):
         """Resets the index variable to it's original value."""

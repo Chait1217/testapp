@@ -10,6 +10,7 @@
             spacing: dp(-15)
             size_hint_x: 1
             MDLabel:
+                id: title_name
                 text: "Akiping"
                 halign: "center"
                 markup: True
@@ -26,6 +27,7 @@
             MDList:
                 id: item_drawer
                 OneLineAvatarListItem:
+                    id: homepage
                     text: '[size=18sp]Homepage[/size]'
                     markup: True
                     on_release:
@@ -38,18 +40,7 @@
                         theme_text_color: 'Custom'
                         text_color: 1, 1, 1, 1
                 OneLineAvatarListItem:
-                    text: '[size=18sp]Languages[/size]'
-                    markup: True
-                    on_release:
-                        app.root.current = "main"
-                    divider_color: 0, 0, 0, 1
-                    theme_text_color: 'Custom'
-                    text_color: 0, 0, 0, 1
-                    IconLeftWidget:
-                        icon: "alpha-l-circle-outline"
-                        theme_text_color: 'Custom'
-                        text_color: 1, 1, 1, 1
-                OneLineAvatarListItem:
+                    id: exit
                     text: '[size=18sp]Exit[/size]'
                     markup: True
                     on_release: app.stop()

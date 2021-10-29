@@ -23,10 +23,10 @@ def create_json_europe(filename, questions, players):
     filename : .json
         name of json file created.
 
-    questions : tuple
+    questions : list
         list of all the questions for the male European table tennis players.
 
-    players : tuple
+    players : list
         list of all the male European table tennis players.
     """
     EUROPE = ('FALCK Mattias', 'BOLL Timo', 'OVTCHAROV Dimitrij', 'PITCHFORD Liam', 'FRANZISKA Patrick',
@@ -145,10 +145,10 @@ def create_json_asia(filename, questions, players):
     filename : .json
         name of json file created.
 
-    questions : tuple
+    questions : list
         list of all the questions for the male Asian table tennis players.
 
-    players : tuple
+    players : list
         list of all the male Asian table tennis players.
     """
     ASIA = ('FAN Zhendong', 'XU Xin', 'MA Long', 'LIN Gaoyuan', 'HARIMOTO Tomokazu', 'LIN Yun-Ju',
@@ -166,8 +166,7 @@ def create_json_asia(filename, questions, players):
 
     # "Does your player play with the pen hold grip?"
     Q_2 = ("no", "yes", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "yes", "no", "yes", "no", "no",
-           "no",
-           "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no")
+           "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no")
 
     # "Is your player older than 30 years old?"
     Q_3 = ("no", "yes", "yes", "no", "no", "no", "no", "no", "no", "no", "no", "yes", "no", "yes", "no", "yes", "yes",
@@ -175,8 +174,8 @@ def create_json_asia(filename, questions, players):
 
     # "Has your player ever won an olympic medal in singles or in team event?"
     Q_4 = ("yes", "yes", "yes", "no", "yes", "no", "no", "no", "no", "no", "yes", "yes", "no", "no", "no", "no",
-           "no", "no", "no",
-           "no", "no", "no", "no", "no", "no", "yes", "no", "no", "no", "no", "no", "no", "no", "no", "no")
+           "no", "no", "no", "no", "no", "no", "no", "no", "no", "yes", "no", "no", "no", "no", "no", "no",
+           "no", "no", "no")
 
     # "Did your player participate in 2016 Olympics in singles or team event?"
     Q_5 = ("no", "yes", "yes", "no", "no", "no", "no", "no", "yes", "no", "yes", "yes", "yes", "yes", "no", "yes",
@@ -185,9 +184,8 @@ def create_json_asia(filename, questions, players):
 
     # "Did your player participate in 2021 Olympics in singles or team event?"
     Q_6 = ("yes", "yes", "yes", "no", "yes", "yes", "no", "yes", "yes", "no", "yes", "yes", "yes", "yes", "no", "yes",
-           "yes",
-           "no", "yes", "no", "no", "yes", "no", "no", "no", "no", "yes", "no", "no", "no", "no", "yes", "no", "no",
-           "no")
+           "yes", "no", "yes", "no", "no", "yes", "no", "no", "no", "no", "yes", "no", "no", "no", "no", "yes",
+           "no", "no", "no")
     # "Is your player sponsored by butterfly?"
     Q_7 = ("no", "no", "no", "yes", "yes", "yes", "no", "no", "no", "no", "no", "yes", "yes", "yes", "no", "yes", "no",
            "yes", "yes", "no", "no", "yes", "no", "no", "no", "yes", "no", "no", "yes", "no", "no", "no", "no", "no",
@@ -198,8 +196,8 @@ def create_json_asia(filename, questions, players):
 
     # "Is your player Korean?"
     Q_9 = ("no", "no", "no", "no", "no", "no", "no", "yes", "yes", "no", "no", "no", "no", "yes", "no", "no", "no",
-           "no", "no",
-           "yes", "no", "no", "no", "no", "no", "no", "no", "yes", "no", "no", "yes", "no", "no", "no", "no")
+           "no", "no", "yes", "no", "no", "no", "no", "no", "no", "no", "yes", "no", "no", "yes", "no", "no",
+           "no", "no")
 
     # "Is your player Indian?"
     Q_10 = ("no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "yes",
@@ -208,13 +206,13 @@ def create_json_asia(filename, questions, players):
 
     # "Does your player serves the forehand reverse pendulum serve?"
     Q_11 = ("yes", "no", "no", "yes", "no", "no", "yes", "no", "no", "no", "no", "yes", "no", "no", "no", "no", "no",
-            "no", "yes",
-            "no", "no", "no", "no", "no", "yes", "yes", "no", "no", "yes", "yes", "no", "no", "yes", "yes", "no")
+            "no", "yes", "no", "no", "no", "no", "no", "yes", "yes", "no", "no", "yes", "yes", "no", "no", "yes",
+            "yes", "no")
 
     # "Does your player serves the forehand hook serve?"
     Q_12 = ("no", "yes", "no", "no", "no", "no", "no", "no", "no", "no", "yes", "no", "yes", "no", "no", "no", "no",
-            "no",
-            "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "yes", "no", "no", "yes")
+            "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "yes", "no", "no",
+            "yes")
 
     dict_json = {}
     for k in range(0, len(players)):
@@ -244,10 +242,10 @@ def create_json_africa(filename, questions, players):
     filename : .json
         name of json file created.
 
-    questions : tuple
+    questions : list
         list of all the questions for the male African table tennis players.
 
-    players : tuple
+    players : list
         list of all the male African table tennis players.
     """
     AFRICA = ('ARUNA Quadri', 'ASSAR Omar', 'SALEH Ahmed', 'DIAW Ibrahima', 'OMOTAYO Olajide')
@@ -294,7 +292,7 @@ def create_json_africa(filename, questions, players):
         return f.write(json_file)
 
 
-def create_json_north(filename, questions, players):
+def create_json_americas(filename, questions, players):
     """
     Creates a json file for the male American table tennis players with all their attributes.
 
@@ -310,10 +308,10 @@ def create_json_north(filename, questions, players):
     filename : .json
         name of json file created.
 
-    questions : tuple
+    questions : list
         list of all the questions for the male American table tennis players.
 
-    players : tuple
+    players : list
         list of all the male American table tennis players.
     """
     AMERICAS = ('CALDERANO Hugo', 'JHA Kanak', 'TSUBOI Gustavo', 'ISHIY Vitor', 'AGUIRRE Marcelo', 'CIFUENTES Horacio',
@@ -353,3 +351,4 @@ def create_json_north(filename, questions, players):
     json_file = json.dumps(dict_json, indent=4)
     with open(filename, "w", encoding='utf-8') as f:
         return f.write(json_file)
+

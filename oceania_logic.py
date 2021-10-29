@@ -8,147 +8,159 @@ def oceania_logic(self):
     Manages the logic of the questions according to the answers given by the user
     for the countries situated in Oceania.
     """
-    if self.app.root.ids.third.questions == "Is the population of your country over 10 million?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
-            self.questions_country.remove("Is the population of your country over 10 million?")
-        if self.answer_user == 'yes':
-            self.questions_country.remove("Is the population of your country over 10 million?")
-            self.questions_country.remove("Is the population of your country over 1 million?")
-            self.questions_country.remove("Does the flag of your country contains green?")
-            self.questions_country.remove("Does the flag of your country contains blue?")
-            self.questions_country.remove("Is there a star on the flag of your country?")
-            self.questions_country.remove("Does the flag of your country contains red?")
-            self.questions_country.remove("Does the flag of your country contains yellow?")
-    if self.app.root.ids.third.questions == "Is the population of your country over 1 million?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
+    YES = "yes"
+    NO = "no"
+    DNK = "dnk"
+    Q1 = "Is the population of your country over 10 million?"
+    Q2 = "Is the population of your country over 1 million?"
+    Q3 = "Does the flag of your country contains green?"
+    Q4 = "Does the flag of your country contains blue?"
+    Q5 = "Is there a star on the flag of your country?"
+    Q6 = "Does the flag of your country contains red?"
+    Q7 = "Does the flag of your country contains yellow?"
+
+    if self.app.root.ids.third.questions == Q1:
+        if self.answer_user == NO or self.answer_user == DNK:
+            self.questions_country.remove(Q1)
+        if self.answer_user == YES:
+            self.questions_country.remove(Q1)
+            self.questions_country.remove(Q2)
+            self.questions_country.remove(Q3)
+            self.questions_country.remove(Q4)
+            self.questions_country.remove(Q5)
+            self.questions_country.remove(Q6)
+            self.questions_country.remove(Q7)
+    if self.app.root.ids.third.questions == Q2:
+        if self.answer_user == NO or self.answer_user == DNK:
             try:
-                self.questions_country.remove("Is the population of your country over 1 million?")
+                self.questions_country.remove(Q2)
             except ValueError:
                 pass
-        if self.answer_user == 'yes':
+        if self.answer_user == YES:
             try:
-                self.questions_country.remove("Is the population of your country over 1 million?")
+                self.questions_country.remove(Q2)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Does the flag of your country contains green?")
+                self.questions_country.remove(Q3)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is there a star on the flag of your country?")
+                self.questions_country.remove(Q5)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Does the flag of your country contains red?")
+                self.questions_country.remove(Q6)
             except ValueError:
                 pass
 
-    if self.app.root.ids.third.questions == "Does the flag of your country contains green?":
-        if self.answer_user == 'no' or self.answer_user == "dnk":
+    if self.app.root.ids.third.questions == Q3:
+        if self.answer_user == NO or self.answer_user == DNK:
             try:
-                self.questions_country.remove("Does the flag of your country contains green?")
+                self.questions_country.remove(Q3)
             except ValueError:
                 pass
-        if self.answer_user == 'yes':
+        if self.answer_user == YES:
             try:
-                self.questions_country.remove("Does the flag of your country contains green?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Is the population of your country over 10 million?")
+                self.questions_country.remove(Q3)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 1 million?")
+                self.questions_country.remove(Q1)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Does the flag of your country contains yellow?")
-            except ValueError:
-                pass
-    if self.app.root.ids.third.questions == "Does the flag of your country contains blue?":
-        if self.answer_user == 'yes' or self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Does the flag of your country contains blue?")
-            except ValueError:
-                pass
-        if self.answer_user == 'no':
-            try:
-                self.questions_country.remove("Does the flag of your country contains blue?")
+                self.questions_country.remove(Q2)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 10 million?")
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+    if self.app.root.ids.third.questions == Q4:
+        if self.answer_user == YES or self.answer_user == DNK:
+            try:
+                self.questions_country.remove(Q4)
+            except ValueError:
+                pass
+        if self.answer_user == NO:
+            try:
+                self.questions_country.remove(Q4)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Does the flag of your country contains red?")
-            except ValueError:
-                pass
-    if self.app.root.ids.third.questions == "Is there a star on the flag of your country?":
-        if self.answer_user == 'yes' or self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Is there a star on the flag of your country?")
-            except ValueError:
-                pass
-        if self.answer_user == 'no':
-            try:
-                self.questions_country.remove("Is there a star on the flag of your country?")
+                self.questions_country.remove(Q1)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 10 million?")
+                self.questions_country.remove(Q6)
+            except ValueError:
+                pass
+    if self.app.root.ids.third.questions == Q5:
+        if self.answer_user == YES or self.answer_user == DNK:
+            try:
+                self.questions_country.remove(Q5)
+            except ValueError:
+                pass
+        if self.answer_user == NO:
+            try:
+                self.questions_country.remove(Q5)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 1 million?")
+                self.questions_country.remove(Q1)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 1 million?")
-            except ValueError:
-                pass
-    if self.app.root.ids.third.questions == "Does the flag of your country contains red?":
-        if self.answer_user == 'yes' or self.answer_user == "dnk":
-            try:
-                self.questions_country.remove("Does the flag of your country contains red?")
-            except ValueError:
-                pass
-        if self.answer_user == 'no':
-            try:
-                self.questions_country.remove("Is the population of your country over 10 million?")
+                self.questions_country.remove(Q2)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 1 million?")
+                self.questions_country.remove(Q2)
+            except ValueError:
+                pass
+    if self.app.root.ids.third.questions == Q6:
+        if self.answer_user == YES or self.answer_user == DNK:
+            try:
+                self.questions_country.remove(Q6)
+            except ValueError:
+                pass
+        if self.answer_user == NO:
+            try:
+                self.questions_country.remove(Q1)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Does the flag of your country contains blue?")
+                self.questions_country.remove(Q2)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q4)
             except ValueError:
                 pass
 
-    if self.app.root.ids.third.questions == "Does the flag of your country contains yellow?":
-        if self.answer_user == "dnk":
+    if self.app.root.ids.third.questions == Q7:
+        if self.answer_user == DNK:
             try:
-                self.questions_country.remove("Does the flag of your country contains yellow?")
+                self.questions_country.remove(Q7)
             except ValueError:
                 pass
-        if self.answer_user == 'no':
+        if self.answer_user == NO:
             try:
-                self.questions_country.remove("Does the flag of your country contains green?")
-            except ValueError:
-                pass
-            try:
-                self.questions_country.remove("Does the flag of your country contains yellow?")
-            except ValueError:
-                pass
-        if self.answer_user == 'yes':
-            try:
-                self.questions_country.remove("Does the flag of your country contains yellow?")
+                self.questions_country.remove(Q3)
             except ValueError:
                 pass
             try:
-                self.questions_country.remove("Is the population of your country over 10 million?")
+                self.questions_country.remove(Q7)
             except ValueError:
                 pass
+        if self.answer_user == YES:
+            try:
+                self.questions_country.remove(Q7)
+            except ValueError:
+                pass
+            try:
+                self.questions_country.remove(Q1)
+            except ValueError:
+                pass
+
