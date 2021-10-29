@@ -2,7 +2,7 @@
 Guessing game, Akiping, on Kivy / KivyMD for my Travail de Maturité
 StatsPoint
 
-AKiping, guessing game, app on Kivy / KivyMD
+Akiping, guessing game, app on Kivy / KivyMD
 
 Travail de maturité / School project
 
