@@ -28,7 +28,7 @@ def europe_female_logic(self):
     if self.app.root.ids.fourth.questions == Q1:
         if self.answer_user == NO or self.answer_user == DNK:
             self.questions_players.remove(Q1)
-        if self.answer_user == YES:
+        else:
             self.questions_players.remove(Q1)
             self.questions_players.remove(Q2)
 
@@ -38,7 +38,7 @@ def europe_female_logic(self):
                 self.questions_players.remove(Q3)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q3)
             except ValueError:
@@ -64,7 +64,7 @@ def europe_female_logic(self):
                 self.questions_players.remove(Q2)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q2)
             except ValueError:
@@ -80,7 +80,7 @@ def europe_female_logic(self):
                 self.questions_players.remove(Q6)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q6)
             except ValueError:
@@ -130,7 +130,7 @@ def europe_female_logic(self):
                 self.questions_players.remove(Q10)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q10)
             except ValueError:
@@ -146,7 +146,7 @@ def europe_female_logic(self):
                 self.questions_players.remove(Q11)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q11)
             except ValueError:

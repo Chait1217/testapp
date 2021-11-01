@@ -48,7 +48,7 @@ def africa_male_logic(self):
                 self.questions_players.remove(Q5)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q2)
             except ValueError:
@@ -77,7 +77,7 @@ def africa_male_logic(self):
             except ValueError:
                 pass
 
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_players.remove(Q6)
             except ValueError:
@@ -133,7 +133,7 @@ def africa_male_logic(self):
                 self.questions_players.remove(Q8)
             except ValueError:
                 pass
-        if self.answer_user == DNK:
+        else:
             try:
                 self.questions_players.remove(Q10)
             except ValueError:

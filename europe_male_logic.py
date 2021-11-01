@@ -30,7 +30,7 @@ def europe_male_logic(self):
     if self.app.root.ids.fourth.questions == Q1:
         if self.answer_user == NO or self.answer_user == DNK:
             self.questions_players.remove(Q1)
-        if self.answer_user == YES:
+        else:
             self.questions_players.remove(Q1)
             self.questions_players.remove(Q2)
             self.questions_players.remove(Q3)
@@ -44,7 +44,7 @@ def europe_male_logic(self):
                 self.questions_players.remove(Q2)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q2)
             except ValueError:
@@ -72,7 +72,7 @@ def europe_male_logic(self):
                 self.questions_players.remove(Q8)
             except ValueError:
                 pass
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_players.remove(Q8)
             except ValueError:
@@ -82,7 +82,12 @@ def europe_male_logic(self):
             except ValueError:
                 pass
     if self.app.root.ids.fourth.questions == Q9:
-        if self.answer_user == NO:
+        if self.answer_user == YES or self.answer_user == DNK:
+            try:
+                self.questions_players.remove(Q9)
+            except ValueError:
+                pass
+        else:
             try:
                 self.questions_players.remove(Q9)
             except ValueError:
@@ -95,18 +100,13 @@ def europe_male_logic(self):
                 self.questions_players.remove(Q4)
             except ValueError:
                 pass
-        if self.answer_user == YES or self.answer_user == DNK:
-            try:
-                self.questions_players.remove(Q9)
-            except ValueError:
-                pass
     if self.app.root.ids.fourth.questions == Q10:
         if self.answer_user == YES or self.answer_user == DNK:
             try:
                 self.questions_players.remove(Q10)
             except ValueError:
                 pass
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_players.remove(Q10)
             except ValueError:
@@ -125,7 +125,7 @@ def europe_male_logic(self):
                 self.questions_players.remove(Q3)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q3)
             except ValueError:
@@ -164,7 +164,7 @@ def europe_male_logic(self):
                 self.questions_players.remove(Q11)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q11)
             except ValueError:
@@ -180,7 +180,7 @@ def europe_male_logic(self):
                 self.questions_players.remove(Q7)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q7)
             except ValueError:
@@ -206,7 +206,7 @@ def europe_male_logic(self):
                 self.questions_players.remove(Q12)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q12)
             except ValueError:
@@ -222,7 +222,7 @@ def europe_male_logic(self):
                 self.questions_players.remove(Q13)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q13)
             except ValueError:
@@ -249,7 +249,7 @@ def europe_male_logic(self):
                 self.questions_players.remove(Q14)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q14)
             except ValueError:
@@ -272,7 +272,7 @@ def europe_male_logic(self):
                 self.questions_players.remove(Q4)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q4)
             except ValueError:
@@ -291,7 +291,7 @@ def europe_male_logic(self):
                 self.questions_players.remove(Q5)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q5)
             except ValueError:

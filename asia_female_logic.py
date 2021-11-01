@@ -27,7 +27,7 @@ def asia_female_logic(self):
     if self.app.root.ids.fourth.questions == Q1:
         if self.answer_user == NO or self.answer_user == DNK:
             self.questions_players.remove(Q1)
-        if self.answer_user == YES:
+        else:
             self.questions_players.remove(Q1)
             self.questions_players.remove(Q2)
 
@@ -37,7 +37,7 @@ def asia_female_logic(self):
                 self.questions_players.remove(Q3)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q3)
             except ValueError:
@@ -63,7 +63,7 @@ def asia_female_logic(self):
                 self.questions_players.remove(Q2)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q2)
             except ValueError:
@@ -91,7 +91,7 @@ def asia_female_logic(self):
                 self.questions_players.remove(Q5)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q5)
             except ValueError:
@@ -119,7 +119,7 @@ def asia_female_logic(self):
                 self.questions_players.remove(Q10)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q10)
             except ValueError:
@@ -135,7 +135,7 @@ def asia_female_logic(self):
                 self.questions_players.remove(Q8)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q8)
             except ValueError:

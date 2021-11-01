@@ -23,7 +23,7 @@ def americas_male_logic(self):
     if self.app.root.ids.fourth.questions == Q1:
         if self.answer_user == NO or self.answer_user == DNK:
             self.questions_players.remove(Q1)
-        if self.answer_user == YES:
+        else:
             self.questions_players.remove(Q1)
             self.questions_players.remove(Q2)
             self.questions_players.remove(Q3)
@@ -37,7 +37,7 @@ def americas_male_logic(self):
                 self.questions_players.remove(Q7)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q7)
             except ValueError:
@@ -66,7 +66,7 @@ def americas_male_logic(self):
             except ValueError:
                 pass
 
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_players.remove(Q2)
             except ValueError:
@@ -87,7 +87,7 @@ def americas_male_logic(self):
             except ValueError:
                 pass
 
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_players.remove(Q8)
             except ValueError:
@@ -110,7 +110,7 @@ def americas_male_logic(self):
                 self.questions_players.remove(Q3)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q3)
             except ValueError:
@@ -129,7 +129,7 @@ def americas_male_logic(self):
                 self.questions_players.remove(Q4)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q4)
             except ValueError:
@@ -148,7 +148,7 @@ def americas_male_logic(self):
                 self.questions_players.remove(Q5)
             except ValueError:
                 pass
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_players.remove(Q5)
             except ValueError:

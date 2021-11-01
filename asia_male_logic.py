@@ -37,7 +37,7 @@ def asia_male_logic(self):
                 self.questions_players.remove(Q2)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q2)
             except ValueError:
@@ -78,7 +78,7 @@ def asia_male_logic(self):
                 self.questions_players.remove(Q9)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q9)
             except ValueError:
@@ -102,7 +102,7 @@ def asia_male_logic(self):
                 self.questions_players.remove(Q11)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q11)
             except ValueError:
@@ -121,7 +121,7 @@ def asia_male_logic(self):
                 self.questions_players.remove(Q4)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q3)
             except ValueError:
@@ -144,7 +144,7 @@ def asia_male_logic(self):
                 self.questions_players.remove(Q3)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q3)
             except ValueError:
@@ -159,7 +159,7 @@ def asia_male_logic(self):
                 self.questions_players.remove(Q5)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_players.remove(Q5)
             except ValueError:

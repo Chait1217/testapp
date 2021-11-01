@@ -26,7 +26,9 @@ def north_central_america_logic(self):
     Q13 = "Is there a star on the flag of your country?"
 
     if self.app.root.ids.third.questions == Q1:
-        if self.answer_user == YES:
+        if self.answer_user == NO or self.answer_user == DNK:
+            self.questions_country.remove(Q1)
+        else:
             self.questions_country.remove(Q1)
             self.questions_country.remove(Q2)
             self.questions_country.remove(Q3)
@@ -36,8 +38,7 @@ def north_central_america_logic(self):
             self.questions_country.remove(Q7)
             self.questions_country.remove(Q8)
             self.questions_country.remove(Q9)
-        if self.answer_user == NO or self.answer_user == DNK:
-            self.questions_country.remove(Q1)
+
     if self.app.root.ids.third.questions == Q3:
         if self.answer_user == DNK:
             try:
@@ -53,7 +54,7 @@ def north_central_america_logic(self):
                 self.questions_country.remove(Q1)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q4)
             except ValueError:
@@ -93,7 +94,7 @@ def north_central_america_logic(self):
                 self.questions_country.remove(Q7)
             except ValueError:
                 pass
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_country.remove(Q4)
             except ValueError:
@@ -125,7 +126,7 @@ def north_central_america_logic(self):
                 self.questions_country.remove(Q8)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q2)
             except ValueError:
@@ -161,7 +162,7 @@ def north_central_america_logic(self):
                 self.questions_country.remove(Q8)
             except ValueError:
                 pass
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_country.remove(Q10)
             except ValueError:
@@ -180,7 +181,7 @@ def north_central_america_logic(self):
                 self.questions_country.remove(Q5)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q5)
             except ValueError:
@@ -195,7 +196,7 @@ def north_central_america_logic(self):
                 self.questions_country.remove(Q11)
             except ValueError:
                 pass
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_country.remove(Q11)
             except ValueError:
@@ -210,7 +211,7 @@ def north_central_america_logic(self):
                 self.questions_country.remove(Q6)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q6)
             except ValueError:
@@ -229,7 +230,7 @@ def north_central_america_logic(self):
                 self.questions_country.remove(Q12)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q12)
             except ValueError:
@@ -244,7 +245,7 @@ def north_central_america_logic(self):
                 self.questions_country.remove(Q13)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q13)
             except ValueError:
@@ -259,7 +260,7 @@ def north_central_america_logic(self):
                 self.questions_country.remove(Q7)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q7)
             except ValueError:

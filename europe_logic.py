@@ -35,7 +35,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q1)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q2)
             except ValueError:
@@ -107,7 +107,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q16)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q6)
             except ValueError:
@@ -171,7 +171,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q5)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q6)
             except ValueError:
@@ -211,7 +211,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q6)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q5)
             except ValueError:
@@ -243,7 +243,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q17)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q5)
             except ValueError:
@@ -271,7 +271,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q7)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q5)
             except ValueError:
@@ -307,7 +307,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q8)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q3)
             except ValueError:
@@ -351,7 +351,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q9)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q7)
             except ValueError:
@@ -375,7 +375,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q10)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q2)
             except ValueError:
@@ -427,7 +427,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q11)
             except ValueError:
                 pass
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_country.remove(Q11)
             except ValueError:
@@ -443,7 +443,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q12)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q10)
             except ValueError:
@@ -463,7 +463,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q13)
             except ValueError:
                 pass
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_country.remove(Q7)
             except ValueError:
@@ -488,7 +488,7 @@ def europe_logic(self):
             except ValueError:
                 pass
 
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q2)
             except ValueError:
@@ -542,7 +542,7 @@ def europe_logic(self):
                 self.questions_country.remove(Q2)
             except ValueError:
                 pass
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_country.remove(Q3)
             except ValueError:
@@ -563,7 +563,7 @@ def europe_logic(self):
             except ValueError:
                 pass
 
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_country.remove(Q2)
             except ValueError:

@@ -22,7 +22,7 @@ def oceania_logic(self):
     if self.app.root.ids.third.questions == Q1:
         if self.answer_user == NO or self.answer_user == DNK:
             self.questions_country.remove(Q1)
-        if self.answer_user == YES:
+        else:
             self.questions_country.remove(Q1)
             self.questions_country.remove(Q2)
             self.questions_country.remove(Q3)
@@ -36,7 +36,7 @@ def oceania_logic(self):
                 self.questions_country.remove(Q2)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q2)
             except ValueError:
@@ -60,7 +60,7 @@ def oceania_logic(self):
                 self.questions_country.remove(Q3)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q3)
             except ValueError:
@@ -83,7 +83,7 @@ def oceania_logic(self):
                 self.questions_country.remove(Q4)
             except ValueError:
                 pass
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_country.remove(Q4)
             except ValueError:
@@ -102,7 +102,7 @@ def oceania_logic(self):
                 self.questions_country.remove(Q5)
             except ValueError:
                 pass
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_country.remove(Q5)
             except ValueError:
@@ -125,7 +125,7 @@ def oceania_logic(self):
                 self.questions_country.remove(Q6)
             except ValueError:
                 pass
-        if self.answer_user == NO:
+        else:
             try:
                 self.questions_country.remove(Q1)
             except ValueError:
@@ -154,7 +154,7 @@ def oceania_logic(self):
                 self.questions_country.remove(Q7)
             except ValueError:
                 pass
-        if self.answer_user == YES:
+        else:
             try:
                 self.questions_country.remove(Q7)
             except ValueError:
